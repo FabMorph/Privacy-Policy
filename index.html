@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FabMorph - Gizlilik Politikası (Privacy Policy)</title>
+    <title>FabMorph - Privacy Policy (Gizlilik Politikası)</title>
     <style>
         :root {
             --bg-color: #0F172A;
@@ -36,6 +36,31 @@
             padding: 36px 28px;
             border: 1px solid var(--border-color);
             box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.3);
+        }
+
+        .lang-switcher {
+            display: flex;
+            justify-content: flex-end;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .lang-btn {
+            background-color: var(--border-color);
+            color: var(--text-main);
+            border: 1px solid var(--border-color);
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .lang-btn.active {
+            background-color: var(--primary);
+            color: #000;
+            border-color: var(--primary);
         }
 
         .header {
@@ -121,6 +146,14 @@
             text-decoration: none;
         }
 
+        .lang-section {
+            display: none;
+        }
+
+        .lang-section.active {
+            display: block;
+        }
+
         @media (max-width: 600px) {
             .container {
                 padding: 24px 18px;
@@ -137,49 +170,127 @@
 <body>
 
 <div class="container">
+    <div class="lang-switcher">
+        <button class="lang-btn" id="btn-tr" onclick="setLanguage('tr')">🇹🇷 Türkçe</button>
+        <button class="lang-btn" id="btn-en" onclick="setLanguage('en')">🇬🇧 English</button>
+    </div>
+
     <div class="header">
         <img src="fabmorph_logo.png" alt="FabMorph Logo" class="logo-img">
         <h1>FabMorph</h1>
-        <div class="subtitle">Mobil Uygulamaları Resmi Gizlilik Politikası (Privacy Policy)</div>
-        <div class="meta-info">Son Güncelleme Tarihi: 31 Temmuz 2026</div>
+        <div class="subtitle" id="header-subtitle">Official Privacy Policy (Resmi Gizlilik Politikası)</div>
+        <div class="meta-info" id="header-meta">Last Updated: July 31, 2026</div>
     </div>
 
-    <p>FabMorph ("Geliştirici", "Biz"), kullanıcılarımızın gizliliğine önem verir. Bu Gizlilik Politikası, FabMorph tarafından yayınlanan ve aşağıda kendilerine özel veri işleme koşulları belirtilen mobil uygulamalarımız için geçerlidir.</p>
+    <!-- TURKISH SECTION -->
+    <div id="section-tr" class="lang-section">
+        <p>FabMorph ("Geliştirici", "Biz"), kullanıcılarımızın gizliliğine önem verir. Bu Gizlilik Politikası, FabMorph tarafından yayınlanan mobil uygulamalarımız için geçerlidir.</p>
 
-    <h2>1. Genel İlkeler ve Veri Koruması</h2>
-    <p>FabMorph olarak geliştirdiğimiz uygulamalarda temel ilkemiz: Kullanıcılarımıza şeffaf, güvenli ve gizlilik odaklı bir deneyim sunmaktır.</p>
-    <ul>
-        <li><strong>Kişisel Veri Toplamama:</strong> Uygulamalarımızda kullanıcı adı, e-posta adresi, telefon numarası veya konum bilgisi toplanmaz, işlenmez ve üçüncü şahıslarla paylaşılmaz.</li>
-        <li><strong>Sunucusuz (Serverless) Mimari:</strong> Verileriniz harici bir bulut sunucusuna veya veri merkezine aktarılmaz.</li>
-    </ul>
+        <h2>1. Genel İlkeler ve Veri Koruması</h2>
+        <p>FabMorph olarak geliştirdiğimiz uygulamalarda temel ilkemiz: Kullanıcılarımıza şeffaf, güvenli ve gizlilik odaklı bir deneyim sunmaktır.</p>
+        <ul>
+            <li><strong>Kişisel Veri Toplamama:</strong> Uygulamalarımızda kullanıcı adı, e-posta adresi, telefon numarası veya konum bilgisi toplanmaz, işlenmez ve üçüncü şahıslarla paylaşılmaz.</li>
+            <li><strong>Sunucusuz (Serverless) Mimari:</strong> Verileriniz harici bir bulut sunucusuna veya veri merkezine aktarılmaz.</li>
+        </ul>
 
-    <h2>2. "ThisOne - Alışkanlık Bırakma & Takip Sayacı" Özel Gizlilik Şartları</h2>
-    <p>Bu bölüm, <strong>ThisOne</strong> uygulamamıza özel gizlilik ve veri saklama koşullarını kapsamaktadır:</p>
-    <ul>
-        <li><strong>Yerel Veri Saklama:</strong> ThisOne’da girilen alışkanlık kayıtları, tarihler ve uygulama tercihleri cihazınızda yerel olarak saklanır. Bu veriler FabMorph’un sunucularına aktarılmaz veya saklanmaz. ThisOne; kullanıcı adı, e-posta adresi, telefon numarası veya konum bilgisi toplamaz.</li>
-        <li><strong>Üçüncü Taraf Hizmetler (Google Play Servisleri):</strong>
-            <ul>
-                <li><strong>Google Play Billing:</strong> İsteğe bağlı uygulama içi ödemeler (geliştiriciye destek) Google Play’in resmi ödeme altyapısı üzerinden işlenir. FabMorph kart veya ödeme bilgilerinizi doğrudan görmez ve saklamez.</li>
-                <li><strong>Google In-App Review:</strong> Uygulama içi değerlendirme istemi Google Play hizmeti tarafından sunulur.</li>
-            </ul>
-        </li>
-        <li><strong>Verileri Sıfırlama Hakkı:</strong> Kullanıcılar, uygulama içindeki "Tüm Verileri Sıfırla" seçeneğiyle alışkanlık kayıtlarını cihazlarından diledikleri an silebilirler.</li>
-    </ul>
+        <h2>2. "ThisOne - Alışkanlık Bırakma & Takip Sayacı" Özel Gizlilik Şartları</h2>
+        <p>Bu bölüm, <strong>ThisOne</strong> uygulamamıza özel gizlilik ve veri saklama koşullarını kapsamaktadır:</p>
+        <ul>
+            <li><strong>Yerel Veri Saklama:</strong> ThisOne’da girilen alışkanlık kayıtları, tarihler ve uygulama tercihleri cihazınızda yerel olarak saklanır. Bu veriler FabMorph’un sunucularına aktarılmaz veya saklanmaz.</li>
+            <li><strong>Üçüncü Taraf Hizmetler (Google Play Servisleri):</strong>
+                <ul>
+                    <li><strong>Google Play Billing:</strong> İsteğe bağlı uygulama içi ödemeler Google Play’in resmi ödeme altyapısı üzerinden işlenir. FabMorph kart bilgilerinizi doğrudan görmez ve saklamaz.</li>
+                    <li><strong>Google In-App Review:</strong> Uygulama içi değerlendirme istemi Google Play hizmeti tarafından sunulur.</li>
+                </ul>
+            </li>
+            <li><strong>Verileri Sıfırlama Hakkı:</strong> Kullanıcılar, uygulama içindeki "Tüm Verileri Sıfırla" seçeneğiyle alışkanlık kayıtlarını cihazlarından diledikleri an silebilirler.</li>
+        </ul>
 
-    <div class="disclaimer-box">
-        <strong>Yasal Uyarı (Medical Disclaimer):</strong><br>
-        ThisOne tıbbi bir cihaz değildir; herhangi bir hastalığı teşhis etmez, tedavi etmez, iyileştirmez veya önlemez. Uygulama yalnızca kişisel motivasyon ve günlük alışkanlık takibi amacıyla sunulur. Sağlıkla ilgili kararlarınız için lütfen bir sağlık uzmanına danışın.
+        <div class="disclaimer-box">
+            <strong>Yasal Uyarı (Medical Disclaimer):</strong><br>
+            ThisOne tıbbi bir cihaz değildir; herhangi bir hastalığı teşhis etmez, tedavi etmez, iyileştirmez veya önlemez. Uygulama yalnızca kişisel motivasyon ve günlük alışkanlık takibi amacıyla sunulur. Sağlıkla ilgili kararlarınız için lütfen bir sağlık uzmanına danışın.
+        </div>
+
+        <h2>3. Gelecekteki Diğer FabMorph Uygulamaları</h2>
+        <p>FabMorph çatısı altında yayınlanacak diğer mobil uygulamalar için geçerli olan gizlilik esasları işbu politika sayfasında güncellenerek ilan edilecektir.</p>
     </div>
 
-    <h2>3. Gelecekteki Diğer FabMorph Uygulamaları</h2>
-    <p>FabMorph çatısı altında yayınlanacak diğer mobil uygulamalar için geçerli olan gizlilik esasları işbu politika sayfasında güncellenerek ilan edilecektir.</p>
+    <!-- ENGLISH SECTION -->
+    <div id="section-en" class="lang-section">
+        <p>FabMorph ("Developer", "We", "Us") respects your privacy. This Privacy Policy applies to mobile applications published by FabMorph.</p>
+
+        <h2>1. General Principles & Data Protection</h2>
+        <p>Our core principle at FabMorph is to provide a transparent, secure, and privacy-focused experience for all users.</p>
+        <ul>
+            <li><strong>No Personal Data Collection:</strong> We do not collect, process, or share personal data such as names, email addresses, phone numbers, or precise locations.</li>
+            <li><strong>Serverless Architecture:</strong> Your data is never transmitted to or stored on external cloud servers or databases.</li>
+        </ul>
+
+        <h2>2. "ThisOne - Habit Tracker & Counter" Specific Privacy Terms</h2>
+        <p>This section covers privacy and data retention terms specific to <strong>ThisOne</strong>:</p>
+        <ul>
+            <li><strong>Local Data Storage:</strong> Habit logs, timestamps, and preferences entered in ThisOne are stored strictly on your local device. This data is not uploaded or stored on FabMorph servers.</li>
+            <li><strong>Third-Party Services (Google Play Services):</strong>
+                <ul>
+                    <li><strong>Google Play Billing:</strong> Optional in-app support payments are processed via Google Play's official billing system. FabMorph does not see or store credit card details.</li>
+                    <li><strong>Google In-App Review:</strong> In-app review prompts are served securely by official Google Play API services.</li>
+                </ul>
+            </li>
+            <li><strong>Right to Erase Data:</strong> Users can wipe all local habit logs and savings data anytime using the "Reset All Data" option within the application drawer.</li>
+        </ul>
+
+        <div class="disclaimer-box">
+            <strong>Medical Disclaimer:</strong><br>
+            ThisOne is not a medical device; it does not diagnose, treat, cure, or prevent any medical condition or disease. The application is intended solely for personal motivation and daily habit tracking. Please consult a healthcare professional for any health-related advice or decisions.
+        </div>
+
+        <h2>3. Other Future FabMorph Apps</h2>
+        <p>Privacy practices for future mobile applications under FabMorph will be updated and posted on this policy page.</p>
+    </div>
 
     <div class="footer">
-        Gizlilik politikamız hakkındaki sorularınız için: 
+        <span id="footer-contact">Questions regarding our privacy policy? Email us:</span> 
         <a href="mailto:fabmorph@gmail.com" class="contact-email">fabmorph@gmail.com</a><br>
-        &copy; 2026 FabMorph. Tüm hakları saklıdır.
+        &copy; 2026 FabMorph. All rights reserved.
     </div>
 </div>
+
+<script>
+    function setLanguage(lang) {
+        document.querySelectorAll('.lang-section').forEach(el => el.classList.remove('active'));
+        document.querySelectorAll('.lang-btn').forEach(el => el.classList.remove('active'));
+
+        if (lang === 'en') {
+            document.getElementById('section-en').classList.add('active');
+            document.getElementById('btn-en').classList.add('active');
+            document.getElementById('header-subtitle').innerText = 'Official Privacy Policy';
+            document.getElementById('header-meta').innerText = 'Last Updated: July 31, 2026';
+            document.getElementById('footer-contact').innerText = 'Questions regarding our privacy policy? Email us: ';
+            document.documentElement.lang = 'en';
+        } else {
+            document.getElementById('section-tr').classList.add('active');
+            document.getElementById('btn-tr').classList.add('active');
+            document.getElementById('header-subtitle').innerText = 'Mobil Uygulamaları Resmi Gizlilik Politikası';
+            document.getElementById('header-meta').innerText = 'Son Güncelleme Tarihi: 31 Temmuz 2026';
+            document.getElementById('footer-contact').innerText = 'Gizlilik politikamız hakkındaki sorularınız için: ';
+            document.documentElement.lang = 'tr';
+        }
+    }
+
+    // Auto-detect URL parameter or browser language
+    const urlParams = new URLSearchParams(window.location.search);
+    const paramLang = urlParams.get('lang');
+    if (paramLang === 'en' || paramLang === 'tr') {
+        setLanguage(paramLang);
+    } else {
+        const userLang = navigator.language || navigator.userLanguage;
+        if (userLang && userLang.startsWith('en')) {
+            setLanguage('en');
+        } else {
+            setLanguage('tr');
+        }
+    }
+</script>
 
 </body>
 </html>
