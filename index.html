@@ -41,7 +41,7 @@
         .lang-switcher {
             display: flex;
             justify-content: flex-end;
-            gap: 10px;
+            gap: 8px;
             margin-bottom: 20px;
         }
 
@@ -49,17 +49,18 @@
             background-color: var(--border-color);
             color: var(--text-main);
             border: 1px solid var(--border-color);
-            padding: 6px 14px;
+            padding: 6px 16px;
             border-radius: 20px;
             font-size: 13px;
-            font-weight: bold;
+            font-weight: 700;
             cursor: pointer;
             transition: all 0.2s ease;
+            letter-spacing: 0.5px;
         }
 
         .lang-btn.active {
             background-color: var(--primary);
-            color: #000;
+            color: #0F172A;
             border-color: var(--primary);
         }
 
@@ -171,8 +172,8 @@
 
 <div class="container">
     <div class="lang-switcher">
-        <button class="lang-btn" id="btn-tr" onclick="setLanguage('tr')">🇹🇷 Türkçe</button>
-        <button class="lang-btn" id="btn-en" onclick="setLanguage('en')">🇬🇧 English</button>
+        <button class="lang-btn" id="btn-tr" onclick="setLanguage('tr')">TR</button>
+        <button class="lang-btn" id="btn-en" onclick="setLanguage('en')">EN</button>
     </div>
 
     <div class="header">
