@@ -9,9 +9,12 @@
             --bg-color: #0F172A;
             --card-bg: #1E293B;
             --primary: #06B6D4;
+            --primary-hover: #0891B2;
             --text-main: #F8FAFC;
             --text-muted: #94A3B8;
             --border-color: #334155;
+            --accordion-bg: rgba(30, 41, 59, 0.7);
+            --accordion-hover: rgba(51, 65, 85, 0.5);
         }
 
         * {
@@ -98,14 +101,74 @@
             margin-top: 8px;
         }
 
-        h2 {
-            font-size: 18px;
-            font-weight: 700;
-            color: var(--primary);
-            margin: 24px 0 12px 0;
+        /* ACCORDION STYLES */
+        .accordion-item {
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            margin-bottom: 14px;
+            overflow: hidden;
+            background-color: var(--accordion-bg);
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .accordion-item.active {
+            border-color: var(--primary);
+            box-shadow: 0 4px 15px -3px rgba(6, 182, 212, 0.15);
+        }
+
+        .accordion-header {
+            width: 100%;
             display: flex;
+            justify-content: space-between;
             align-items: center;
-            gap: 8px;
+            padding: 16px 20px;
+            background: transparent;
+            border: none;
+            color: var(--text-main);
+            font-size: 16px;
+            font-weight: 700;
+            text-align: left;
+            cursor: pointer;
+            transition: background-color 0.2s ease;
+            gap: 12px;
+        }
+
+        .accordion-header:hover {
+            background-color: var(--accordion-hover);
+        }
+
+        .accordion-header .title-text {
+            color: var(--primary);
+            flex: 1;
+            line-height: 1.4;
+        }
+
+        .accordion-icon {
+            width: 20px;
+            height: 20px;
+            flex-shrink: 0;
+            fill: none;
+            stroke: var(--primary);
+            stroke-width: 2.5;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+            transition: transform 0.3s ease;
+        }
+
+        .accordion-item.active .accordion-icon {
+            transform: rotate(180deg);
+        }
+
+        .accordion-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease, padding 0.3s ease;
+            padding: 0 20px;
+        }
+
+        .accordion-item.active .accordion-content {
+            padding: 4px 20px 20px 20px;
+            max-height: 2000px;
         }
 
         p, li {
@@ -128,7 +191,7 @@
             border-left: 4px solid var(--primary);
             padding: 16px;
             border-radius: 8px;
-            margin: 16px 0;
+            margin: 16px 0 8px 0;
             font-size: 13.5px;
             color: #E2E8F0;
         }
@@ -158,13 +221,20 @@
 
         @media (max-width: 600px) {
             .container {
-                padding: 24px 18px;
+                padding: 24px 16px;
             }
             h1 {
                 font-size: 22px;
             }
-            h2 {
-                font-size: 16.5px;
+            .accordion-header {
+                padding: 14px 16px;
+                font-size: 15px;
+            }
+            .accordion-content {
+                padding: 0 16px;
+            }
+            .accordion-item.active .accordion-content {
+                padding: 4px 16px 16px 16px;
             }
         }
     </style>
@@ -181,85 +251,188 @@
         <img src="fabmorph_logo.png" alt="FabMorph Logo" class="logo-img">
         <h1>FabMorph</h1>
         <div class="subtitle" id="header-subtitle">Official Privacy Policy (Resmi Gizlilik Politikası)</div>
-        <div class="meta-info" id="header-meta">Last Updated: August 29, 2026</div>
+        <div class="meta-info" id="header-meta">Son Güncelleme Tarihi: 3 Eylül 2026</div>
     </div>
 
     <!-- TURKISH SECTION -->
     <div id="section-tr" class="lang-section">
-        <p>FabMorph ("Geliştirici", "Biz"), kullanıcılarımızın gizliliğine son derece önem verir. Bu Gizlilik Politikası, FabMorph tarafından yayınlanan tüm mobil uygulamalar için geçerlidir.</p>
+        <p style="margin-bottom: 20px;">FabMorph ("Geliştirici", "Biz"), kullanıcılarımızın gizliliğine son derece önem verir. Bu Gizlilik Politikası, FabMorph tarafından yayınlanan tüm mobil uygulamalar için geçerlidir.</p>
 
-        <h2>1. Genel İlkeler ve Veri Koruması</h2>
-        <p>FabMorph olarak geliştirdiğimiz uygulamalarda temel ilkemiz: Kullanıcılarımıza şeffaf, güvenli, reklam ve gizlilik standartlarına tam uyumlu bir deneyim sunmaktır.</p>
-        <ul>
-            <li><strong>Kişisel Veri Toplamama:</strong> Uygulamalarımızda ad, soyad, e-posta adresi, telefon numarası veya hassas kişisel kimlik bilgileri toplanmaz, sunucularımıza kaydedilmez ve üçüncü şahıslarla paylaşılmaz.</li>
-            <li><strong>Sunucusuz (Serverless) Mimari:</strong> Alışkanlık takip verileriniz harici bir bulut sunucusuna veya veri merkezine aktarılmaz; 100% cihazınızda yerel olarak saklanır.</li>
-        </ul>
-
-        <h2>2. "ThisOne - Sigara & Alışkanlık Bırakma Sayacı" Özel Gizlilik Şartları</h2>
-        <p>Bu bölüm, <strong>ThisOne - Sigara & Alışkanlık Bırakma Sayacı</strong> (Quit Smoking & Habit Tracker) uygulamamıza özel gizlilik ve veri saklama koşullarını kapsamaktadır:</p>
-        <ul>
-            <li><strong>Yerel Veri Saklama:</strong> ThisOne’da girilen alışkanlık kayıtları, tasarruf oranları, tarihler ve uygulama tercihleri cihazınızda yerel (SharedPreferences) olarak saklanır. Bu veriler FabMorph sunucularına aktarılmaz.</li>
-            <li><strong>Üçüncü Taraf Hizmetler ve Reklam Altyapısı:</strong>
+        <!-- ACCORDION 1 -->
+        <div class="accordion-item active">
+            <button class="accordion-header" onclick="toggleAccordion(this)">
+                <span class="title-text">1. Genel İlkeler ve Veri Koruması</span>
+                <svg class="accordion-icon" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"></polyline></svg>
+            </button>
+            <div class="accordion-content">
+                <p>FabMorph olarak geliştirdiğimiz uygulamalarda temel ilkemiz: Kullanıcılarımıza şeffaf, güvenli, reklam ve gizlilik standartlarına tam uyumlu bir deneyim sunmaktır.</p>
                 <ul>
-                    <li><strong>Google Mobile Ads (AdMob):</strong> Uygulamamızda banner ve geçiş reklamları göstermek amacıyla Google Mobile Ads SDK kullanılmaktadır. AdMob, reklamların sunumu, performans analizi ve sıklık kısıtlaması için cihazın anonim Reklam Kimliğini (Advertising ID / GAID) Google Gizlilik Politikası uyarınca işleyebilir. Pro sürüm satın alan kullanıcılar için reklamlar tamamen devre dışı bırakılır.</li>
-                    <li><strong>Google Play Billing:</strong> İsteğe bağlı tek seferlik uygulama içi ödemeler (Pro Sürüm yükseltmesi) Google Play’in resmi ödeme altyapısı üzerinden işlenir. FabMorph kredi kartı veya ödeme bilgilerinizi doğrudan görmez ve saklamaz.</li>
-                    <li><strong>Google In-App Review:</strong> Uygulama içi değerlendirme ve puanlama istemleri Google Play resmi API hizmeti tarafından güvenle sunulur.</li>
+                    <li><strong>Kişisel Veri Toplamama:</strong> Uygulamalarımızda ad, soyad, e-posta adresi, telefon numarası veya hassas kişisel kimlik bilgileri toplanmaz, sunucularımıza kaydedilmez ve üçüncü şahıslarla paylaşılmaz.</li>
+                    <li><strong>Sunucusuz (Serverless) Mimari:</strong> Uygulama içi verileriniz harici bir bulut sunucusuna veya veri merkezine aktarılmaz; 100% cihazınızda yerel olarak saklanır.</li>
                 </ul>
-            </li>
-            <li><strong>Verileri Sıfırlama Hakkı:</strong> Kullanıcılar, uygulama içindeki "Tüm Verileri Sıfırla" seçeneğiyle alışkanlık kayıtlarını ve ayarlarını cihazlarından istedikleri an tamamen silebilirler.</li>
-        </ul>
-
-        <div class="disclaimer-box">
-            <strong>Tıbbi Yasal Uyarı (Medical Disclaimer):</strong><br>
-            ThisOne tıbbi bir cihaz değildir; herhangi bir hastalığı teşhis etmez, tedavi etmez, iyileştirmez veya önlemez. Uygulama yalnızca kişisel motivasyon, günlük alışkanlık takibi ve tasarruf hesaplama amacıyla sunulur. Sağlığınızla ilgili kararlar için lütfen yetkili bir sağlık uzmanına danışın.
+            </div>
         </div>
 
-        <h2>3. Gelecekteki Diğer FabMorph Uygulamaları</h2>
-        <p>FabMorph çatısı altında yayınlanacak diğer mobil uygulamalar için geçerli olan gizlilik esasları işbu politika sayfasında güncellenerek ilan edilecektir.</p>
+        <!-- ACCORDION 2 -->
+        <div class="accordion-item">
+            <button class="accordion-header" onclick="toggleAccordion(this)">
+                <span class="title-text">2. "ThisOne - Sigara & Alışkanlık Bırakma Sayacı" Özel Gizlilik Şartları</span>
+                <svg class="accordion-icon" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"></polyline></svg>
+            </button>
+            <div class="accordion-content">
+                <p>Bu bölüm, <strong>ThisOne - Sigara & Alışkanlık Bırakma Sayacı</strong> (Quit Smoking & Habit Tracker) uygulamamıza özel gizlilik ve veri saklama koşullarını kapsamaktadır:</p>
+                <ul>
+                    <li><strong>Yerel Veri Saklama:</strong> ThisOne’da girilen alışkanlık kayıtları, tasarruf oranları, tarihler ve uygulama tercihleri cihazınızda yerel (SharedPreferences) olarak saklanır. Bu veriler FabMorph sunucularına aktarılmaz.</li>
+                    <li><strong>Üçüncü Taraf Hizmetler ve Reklam Altyapısı:</strong>
+                        <ul>
+                            <li><strong>Google Mobile Ads (AdMob):</strong> Uygulamamızda banner ve geçiş reklamları göstermek amacıyla Google Mobile Ads SDK kullanılmaktadır. AdMob, reklamların sunumu, performans analizi ve sıklık kısıtlaması için cihazın anonim Reklam Kimliğini (Advertising ID / GAID) Google Gizlilik Politikası uyarınca işleyebilir. Pro sürüm satın alan kullanıcılar için reklamlar tamamen devre dışı bırakılır.</li>
+                            <li><strong>Google Play Billing:</strong> İsteğe bağlı tek seferlik uygulama içi ödemeler (Pro Sürüm yükseltmesi) Google Play’in resmi ödeme altyapısı üzerinden işlenir. FabMorph kredi kartı veya ödeme bilgilerinizi doğrudan görmez ve saklamaz.</li>
+                            <li><strong>Google In-App Review:</strong> Uygulama içi değerlendirme ve puanlama istemleri Google Play resmi API hizmeti tarafından güvenle sunulur.</li>
+                        </ul>
+                    </li>
+                    <li><strong>Verileri Sıfırlama Hakkı:</strong> Kullanıcılar, uygulama içindeki "Tüm Verileri Sıfırla" seçeneğiyle alışkanlık kayıtlarını ve ayarlarını cihazlarından istedikleri an tamamen silebilirler.</li>
+                </ul>
+
+                <div class="disclaimer-box">
+                    <strong>Tıbbi Yasal Uyarı (Medical Disclaimer):</strong><br>
+                    ThisOne tıbbi bir cihaz değildir; herhangi bir hastalığı teşhis etmez, tedavi etmez, iyileştirmez veya önlemez. Uygulama yalnızca kişisel motivasyon, günlük alışkanlık takibi ve tasarruf hesaplama amacıyla sunulur. Sağlığınızla ilgili kararlar için lütfen yetkili bir sağlık uzmanına danışın.
+                </div>
+            </div>
+        </div>
+
+        <!-- ACCORDION 3 -->
+        <div class="accordion-item">
+            <button class="accordion-header" onclick="toggleAccordion(this)">
+                <span class="title-text">3. "Kentsel Dönüşüm Kredi Hesaplama Aracı" Özel Gizlilik Şartları</span>
+                <svg class="accordion-icon" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"></polyline></svg>
+            </button>
+            <div class="accordion-content">
+                <p>Bu bölüm, <strong>Kentsel Dönüşüm Kredi Hesaplama Aracı</strong> uygulamamıza özel gizlilik, veri saklama ve yasal bilgilendirme koşullarını kapsamaktadır:</p>
+                <ul>
+                    <li><strong>Yerel Veri Saklama ve Sunucusuz Çalışma:</strong> Uygulama tamamen kullanıcının cihazında yerel olarak çalışır. Girdiğiniz kredi tutarları, hane halkı gelir verileri, vade tercihleri veya hesaplama simülasyon sonuçları hiçbir harici bulut sunucusuna aktarılmaz, kaydedilmez ve üçüncü şahıslarla paylaşılmaz.</li>
+                    <li><strong>Kişisel Veri Toplamama:</strong> Uygulama; ad, soyad, T.C. kimlik numarası, banka hesap/kredi kartı bilgileri, konum veya rehber gibi hiçbir kişisel veriyi toplamaz ve talep etmez.</li>
+                    <li><strong>Üçüncü Taraf Hizmetler ve Reklam Altyapısı:</strong>
+                        <ul>
+                            <li><strong>Google Mobile Ads (AdMob):</strong> Uygulamamızda banner ve geçiş reklamları göstermek amacıyla Google Mobile Ads SDK kullanılmaktadır. AdMob, reklamların sunumu, performans analizi ve sıklık kısıtlaması için cihazın anonim Reklam Kimliğini (Advertising ID / GAID) Google Gizlilik Politikası uyarınca işleyabilir.</li>
+                        </ul>
+                    </li>
+                </ul>
+
+                <div class="disclaimer-box">
+                    <strong>Resmi Kurum ve Yasal Sorumsuzluk Beyanı (Legal Disclaimer):</strong><br>
+                    Bu uygulama Çevre, Şehircilik ve İklim Değişikliği Bakanlığı, Kentsel Dönüşüm Başkanlığı, herhangi bir devlet kurumu veya bankaya bağlı değildir. Uygulama içerisinde sunulan hesaplamalar, faiz indirimi simülasyonları ve rehber içerikleri yalnızca genel bilgilendirme amaçlıdır. Kesin kredi tutarları, faiz indirim oranları, tahsis şartları ve asgari gelir kriterleri ilgili resmi kurumların ve anlaşmalı bankaların nihai onay süreçlerine tabidir.
+                </div>
+            </div>
+        </div>
+
+        <!-- ACCORDION 4 -->
+        <div class="accordion-item">
+            <button class="accordion-header" onclick="toggleAccordion(this)">
+                <span class="title-text">4. Gelecekteki Diğer FabMorph Uygulamaları</span>
+                <svg class="accordion-icon" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"></polyline></svg>
+            </button>
+            <div class="accordion-content">
+                <p>FabMorph çatısı altında yayınlanacak diğer mobil uygulamalar için geçerli olan gizlilik esasları işbu politika sayfasında güncellenerek ilan edilecektir.</p>
+            </div>
+        </div>
     </div>
 
     <!-- ENGLISH SECTION -->
     <div id="section-en" class="lang-section">
-        <p>FabMorph ("Developer", "We", "Us") respects your privacy. This Privacy Policy applies to mobile applications published by FabMorph.</p>
+        <p style="margin-bottom: 20px;">FabMorph ("Developer", "We", "Us") respects your privacy. This Privacy Policy applies to all mobile applications published by FabMorph.</p>
 
-        <h2>1. General Principles & Data Protection</h2>
-        <p>Our core principle at FabMorph is to provide a transparent, secure, and privacy-focused experience for all users.</p>
-        <ul>
-            <li><strong>No Personal Data Collection:</strong> We do not collect, process, or share personally identifiable information (PII) such as names, email addresses, phone numbers, or precise location data.</li>
-            <li><strong>Serverless Architecture:</strong> Your data is never transmitted to or stored on external cloud servers or databases; it resides 100% locally on your device.</li>
-        </ul>
-
-        <h2>2. "ThisOne - Quit Smoking & Habit Tracker" Specific Privacy Terms</h2>
-        <p>This section covers privacy and data retention terms specific to <strong>ThisOne - Quit Smoking & Habit Tracker</strong>:</p>
-        <ul>
-            <li><strong>Local Data Storage:</strong> Habit logs, money/time savings calculations, timestamps, and app preferences entered in ThisOne are stored strictly on your local device (SharedPreferences). This data is never uploaded to FabMorph servers.</li>
-            <li><strong>Third-Party Services & Ad Infrastructure:</strong>
+        <!-- ACCORDION 1 -->
+        <div class="accordion-item active">
+            <button class="accordion-header" onclick="toggleAccordion(this)">
+                <span class="title-text">1. General Principles & Data Protection</span>
+                <svg class="accordion-icon" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"></polyline></svg>
+            </button>
+            <div class="accordion-content">
+                <p>Our core principle at FabMorph is to provide a transparent, secure, and privacy-focused experience for all users.</p>
                 <ul>
-                    <li><strong>Google Mobile Ads (AdMob):</strong> We use Google AdMob to serve non-intrusive banner and interstitial advertisements. AdMob may process anonymous device Advertising IDs (GAID) for ad delivery, analytics, and frequency capping under Google's Privacy Policy. Ads are completely disabled for Pro users.</li>
-                    <li><strong>Google Play Billing:</strong> Optional one-time in-app purchases (Pro Upgrade) are processed securely via Google Play's official billing system. FabMorph does not see or store financial or credit card details.</li>
-                    <li><strong>Google In-App Review:</strong> In-app review prompts are served securely by official Google Play API services.</li>
+                    <li><strong>No Personal Data Collection:</strong> We do not collect, process, or share personally identifiable information (PII) such as names, email addresses, phone numbers, or precise location data.</li>
+                    <li><strong>Serverless Architecture:</strong> Your data is never transmitted to or stored on external cloud servers or databases; it resides 100% locally on your device.</li>
                 </ul>
-            </li>
-            <li><strong>Right to Erase Data:</strong> Users can wipe all local habit logs, counter data, and settings anytime using the "Reset All Data" option within the application drawer.</li>
-        </ul>
-
-        <div class="disclaimer-box">
-            <strong>Medical Disclaimer:</strong><br>
-            ThisOne is not a medical device; it does not diagnose, treat, cure, or prevent any medical condition or disease. The application is intended solely for personal motivation, daily habit tracking, and savings estimation. Please consult a qualified healthcare professional for any medical advice or health-related decisions.
+            </div>
         </div>
 
-        <h2>3. Other Future FabMorph Apps</h2>
-        <p>Privacy practices for future mobile applications published under FabMorph will be updated and posted on this official policy page.</p>
+        <!-- ACCORDION 2 -->
+        <div class="accordion-item">
+            <button class="accordion-header" onclick="toggleAccordion(this)">
+                <span class="title-text">2. "ThisOne - Quit Smoking & Habit Tracker" Specific Privacy Terms</span>
+                <svg class="accordion-icon" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"></polyline></svg>
+            </button>
+            <div class="accordion-content">
+                <p>This section covers privacy and data retention terms specific to <strong>ThisOne - Quit Smoking & Habit Tracker</strong>:</p>
+                <ul>
+                    <li><strong>Local Data Storage:</strong> Habit logs, money/time savings calculations, timestamps, and app preferences entered in ThisOne are stored strictly on your local device (SharedPreferences). This data is never uploaded to FabMorph servers.</li>
+                    <li><strong>Third-Party Services & Ad Infrastructure:</strong>
+                        <ul>
+                            <li><strong>Google Mobile Ads (AdMob):</strong> We use Google AdMob to serve non-intrusive banner and interstitial advertisements. AdMob may process anonymous device Advertising IDs (GAID) for ad delivery, analytics, and frequency capping under Google's Privacy Policy. Ads are completely disabled for Pro users.</li>
+                            <li><strong>Google Play Billing:</strong> Optional one-time in-app purchases (Pro Upgrade) are processed securely via Google Play's official billing system. FabMorph does not see or store financial or credit card details.</li>
+                            <li><strong>Google In-App Review:</strong> In-app review prompts are served securely by official Google Play API services.</li>
+                        </ul>
+                    </li>
+                    <li><strong>Right to Erase Data:</strong> Users can wipe all local habit logs, counter data, and settings anytime using the "Reset All Data" option within the application drawer.</li>
+                </ul>
+
+                <div class="disclaimer-box">
+                    <strong>Medical Disclaimer:</strong><br>
+                    ThisOne is not a medical device; it does not diagnose, treat, cure, or prevent any medical condition or disease. The application is intended solely for personal motivation, daily habit tracking, and savings estimation. Please consult a qualified healthcare professional for any medical advice or health-related decisions.
+                </div>
+            </div>
+        </div>
+
+        <!-- ACCORDION 3 -->
+        <div class="accordion-item">
+            <button class="accordion-header" onclick="toggleAccordion(this)">
+                <span class="title-text">3. "Urban Transformation Loan Calculator" Specific Privacy Terms</span>
+                <svg class="accordion-icon" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"></polyline></svg>
+            </button>
+            <div class="accordion-content">
+                <p>This section covers privacy, data retention, and legal disclaimer terms specific to <strong>Urban Transformation Loan Calculator</strong> (Kentsel Dönüşüm Kredi Hesaplama Aracı):</p>
+                <ul>
+                    <li><strong>Local Data Storage & Serverless Operation:</strong> The application operates entirely locally on your device. Loan amounts, household income inputs, maturity selections, or simulation results are never transmitted to, saved on, or shared with external cloud servers.</li>
+                    <li><strong>No Personal Data Collection:</strong> The app does not request, collect, or process personally identifiable information (PII) such as national ID numbers, banking/credit card credentials, precise location, or contact lists.</li>
+                    <li><strong>Third-Party Services & Ad Infrastructure:</strong>
+                        <ul>
+                            <li><strong>Google Mobile Ads (AdMob):</strong> We use Google AdMob to serve non-intrusive advertisements. AdMob may process anonymous device Advertising IDs (GAID) for ad delivery, analytics, and frequency capping under Google's Privacy Policy.</li>
+                        </ul>
+                    </li>
+                </ul>
+
+                <div class="disclaimer-box">
+                    <strong>Official Entity & Legal Disclaimer:</strong><br>
+                    This application is an independent calculation tool and is not affiliated with, endorsed by, or representing any government ministry, official urban transformation authority, or financial institution. Calculations, rate simulations, and guidelines provided within the app are strictly for informational purposes. Final loan approvals, interest subsidy rates, and eligibility criteria are subject to official government regulations and partner bank procedures.
+                </div>
+            </div>
+        </div>
+
+        <!-- ACCORDION 4 -->
+        <div class="accordion-item">
+            <button class="accordion-header" onclick="toggleAccordion(this)">
+                <span class="title-text">4. Other Future FabMorph Apps</span>
+                <svg class="accordion-icon" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"></polyline></svg>
+            </button>
+            <div class="accordion-content">
+                <p>Privacy practices for future mobile applications published under FabMorph will be updated and posted on this official policy page.</p>
+            </div>
+        </div>
     </div>
 
     <div class="footer">
-        <span id="footer-contact">Questions regarding our privacy policy? Email us:</span> 
+        <span id="footer-contact">Gizlilik politikamız hakkındaki sorularınız için: </span> 
         <a href="mailto:fabmorph@gmail.com" class="contact-email">fabmorph@gmail.com</a><br>
         &copy; 2026 FabMorph. All rights reserved.
     </div>
 </div>
 
 <script>
+    function toggleAccordion(button) {
+        const item = button.parentElement;
+        item.classList.toggle('active');
+    }
+
     function setLanguage(lang) {
         document.querySelectorAll('.lang-section').forEach(el => el.classList.remove('active'));
         document.querySelectorAll('.lang-btn').forEach(el => el.classList.remove('active'));
@@ -268,14 +441,14 @@
             document.getElementById('section-en').classList.add('active');
             document.getElementById('btn-en').classList.add('active');
             document.getElementById('header-subtitle').innerText = 'Official Privacy Policy';
-            document.getElementById('header-meta').innerText = 'Last Updated: August 29, 2026';
+            document.getElementById('header-meta').innerText = 'Last Updated: September 3, 2026';
             document.getElementById('footer-contact').innerText = 'Questions regarding our privacy policy? Email us: ';
             document.documentElement.lang = 'en';
         } else {
             document.getElementById('section-tr').classList.add('active');
             document.getElementById('btn-tr').classList.add('active');
             document.getElementById('header-subtitle').innerText = 'Mobil Uygulamaları Resmi Gizlilik Politikası';
-            document.getElementById('header-meta').innerText = 'Son Güncelleme Tarihi: 29 Ağustos 2026';
+            document.getElementById('header-meta').innerText = 'Son Güncelleme Tarihi: 3 Eylül 2026';
             document.getElementById('footer-contact').innerText = 'Gizlilik politikamız hakkındaki sorularınız için: ';
             document.documentElement.lang = 'tr';
         }
@@ -298,4 +471,3 @@
 
 </body>
 </html>
-
