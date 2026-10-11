@@ -3,13 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FabMorph - Privacy Policy (Gizlilik Politikası)</title>
+    <title>FabMorph - Privacy Policy (Gizlilik Politikası & KVKK)</title>
     <style>
         :root {
             --bg-color: #0F172A;
             --card-bg: #1E293B;
             --primary: #06B6D4;
             --primary-hover: #0891B2;
+            --success: #10B981;
             --text-main: #F8FAFC;
             --text-muted: #94A3B8;
             --border-color: #334155;
@@ -32,7 +33,7 @@
         }
 
         .container {
-            max-width: 800px;
+            max-width: 820px;
             margin: 0 auto;
             background-color: var(--card-bg);
             border-radius: 20px;
@@ -83,7 +84,7 @@
 
         h1 {
             font-size: 24px;
-            font-weight: 500;
+            font-weight: 600;
             letter-spacing: 0.8px;
             color: var(--text-main);
             margin-bottom: 6px;
@@ -167,8 +168,15 @@
         }
 
         .accordion-item.active .accordion-content {
-            padding: 4px 20px 20px 20px;
-            max-height: 2000px;
+            padding: 6px 20px 22px 20px;
+            max-height: 3500px;
+        }
+
+        h3 {
+            font-size: 15px;
+            color: var(--text-main);
+            margin: 14px 0 6px 0;
+            font-weight: 600;
         }
 
         p, li {
@@ -196,6 +204,16 @@
             color: #E2E8F0;
         }
 
+        .rights-box {
+            background-color: rgba(16, 185, 129, 0.08);
+            border-left: 4px solid var(--success);
+            padding: 16px;
+            border-radius: 8px;
+            margin: 16px 0 8px 0;
+            font-size: 13.5px;
+            color: #E2E8F0;
+        }
+
         .footer {
             margin-top: 36px;
             padding-top: 20px;
@@ -203,12 +221,17 @@
             text-align: center;
             font-size: 13px;
             color: var(--text-muted);
+            line-height: 1.8;
         }
 
         .contact-email {
             color: var(--primary);
             font-weight: bold;
             text-decoration: none;
+        }
+
+        .contact-email:hover {
+            text-decoration: underline;
         }
 
         .lang-section {
@@ -250,25 +273,26 @@
     <div class="header">
         <img src="fabmorph_logo.png" alt="FabMorph Logo" class="logo-img">
         <h1>FabMorph</h1>
-        <div class="subtitle" id="header-subtitle">Official Privacy Policy (Resmi Gizlilik Politikası)</div>
-        <div class="meta-info" id="header-meta">Son Güncelleme Tarihi: 3 Eylül 2026</div>
+        <div class="subtitle" id="header-subtitle">Official Privacy Policy (Resmi Gizlilik Politikası & KVKK)</div>
+        <div class="meta-info" id="header-meta">Son Güncelleme Tarihi: 12 Ekim 2026</div>
     </div>
 
     <!-- TURKISH SECTION -->
     <div id="section-tr" class="lang-section">
-        <p style="margin-bottom: 20px;">FabMorph ("Geliştirici", "Biz"), kullanıcılarımızın gizliliğine son derece önem verir. Bu Gizlilik Politikası, FabMorph tarafından yayınlanan tüm mobil uygulamalar için geçerlidir.</p>
+        <p style="margin-bottom: 20px;">FabMorph ("Geliştirici", "Biz"), kullanıcılarımızın kişisel gizliliğine ve veri güvenliğine en üst seviyede önem verir. İşbu Gizlilik Politikası, FabMorph tarafından geliştirilen ve yayınlanan tüm mobil ve web uygulamaları için geçerlidir.</p>
 
         <!-- ACCORDION 1 -->
         <div class="accordion-item active">
             <button class="accordion-header" onclick="toggleAccordion(this)">
-                <span class="title-text">1. Genel İlkeler ve Veri Koruması</span>
+                <span class="title-text">1. Genel İlkeler, Şeffaflık ve Veri Güvenliği</span>
                 <svg class="accordion-icon" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"></polyline></svg>
             </button>
             <div class="accordion-content">
-                <p>FabMorph olarak geliştirdiğimiz uygulamalarda temel ilkemiz: Kullanıcılarımıza şeffaf, güvenli, reklam ve gizlilik standartlarına tam uyumlu bir deneyim sunmaktır.</p>
+                <p>FabMorph olarak uygulamalarımızda temel felsefemiz şeffaflık, minimum veri toplama ve kullanıcı gizliliğini korumaktır:</p>
                 <ul>
-                    <li><strong>Kişisel Veri Toplamama:</strong> Uygulamalarımızda ad, soyad, e-posta adresi, telefon numarası veya hassas kişisel kimlik bilgileri toplanmaz, sunucularımıza kaydedilmez ve üçüncü şahıslarla paylaşılmaz.</li>
-                    <li><strong>Sunucusuz (Serverless) Mimari:</strong> Uygulama içi verileriniz harici bir bulut sunucusuna veya veri merkezine aktarılmaz; 100% cihazınızda yerel olarak saklanır.</li>
+                    <li><strong>Anonim ve Sunucusuz Çalışma İlkesi:</strong> Uygulamalarımızın hesaplama araçları, simülasyon motorları ve alışkanlık sayaçları gibi temel işlevleri sunucusuz (serverless) mimaride, tamamen cihazınızda yerel olarak çalışır ve harici sunuculara kişisel veri iletmez.</li>
+                    <li><strong>Açık Rıza ile Sınırlı Veri Toplama:</strong> Yalnızca kullanıcının kendi hür iradesiyle doğrudan talep oluşturduğu veya kayıt yaptırdığı özel interaktif modüllerde (örneğin teklif isteme, yüklenici kaydı vb.) 6698 sayılı Kişisel Verilerin Korunması Kanunu (KVKK) ve Google Play Veri Güvenliği ilkelerine tam uyumlu olarak açık rıza doğrultusunda veri işlenir.</li>
+                    <li><strong>Veri Satışı Yasağı:</strong> FabMorph, toplanan hiçbir kişisel veriyi reklam ajanslarına, veri simsarlarına veya üçüncü taraf ticari pazarlama platformlarına satmaz, kiralamaz ve ticari amaçla devretmez.</li>
                 </ul>
             </div>
         </div>
@@ -301,26 +325,62 @@
         </div>
 
         <!-- ACCORDION 3 -->
-        <div class="accordion-item">
+        <div class="accordion-item active">
             <button class="accordion-header" onclick="toggleAccordion(this)">
-                <span class="title-text">3. "Kentsel Dönüşüm Kredi Hesaplama Aracı" Özel Gizlilik Şartları</span>
+                <span class="title-text">3. "Kentsel Dönüşüm Asistanı & Kredi Hesaplama" Özel Gizlilik Şartları (KVKK Aydınlatma Metni)</span>
                 <svg class="accordion-icon" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"></polyline></svg>
             </button>
             <div class="accordion-content">
-                <p>Bu bölüm, <strong>Kentsel Dönüşüm Kredi Hesaplama Aracı</strong> uygulamamıza özel gizlilik, veri saklama ve yasal bilgilendirme koşullarını kapsamaktadır:</p>
+                <p>Bu bölüm, <strong>Kentsel Dönüşüm Asistanı</strong> (Kredi Hesaplama, Kira & Taşınma Desteği, Yarısı Bizden ve Teklif Portalı) uygulaması ve web sürümüne ilişkin 6698 sayılı Kişisel Verilerin Korunması Kanunu (KVKK) ile Google Play Veri Güvenliği Standartlarına uygun veri işleme koşullarını içermektedir:</p>
+
+                <h3>A. Yerel Hesaplama ve Sunucusuz Modüller (Anonim Veri)</h3>
+                <p>Uygulama içerisindeki Kentsel Dönüşüm Kredisi Hesaplama, Kira ve Taşınma Yardımı Simülasyonu, "Yarısı Bizden" Kampanyası Hibeleri, 1/3 Azınlık Karar Bildirimleri ve Tahliye Süreç Takvimi özellikleri tamamen kullanıcının cihazında yerel olarak çalışır. Girdiğiniz gelir durumları, kredi tutarları veya simülasyon sonuçları hiçbir sunucuya aktarılmaz, kaydedilmez ve cihazınızda kalır.</p>
+
+                <h3>B. "Teklif Al & Müteahhit Portalı" Kapsamında Toplanan Kişisel Veriler</h3>
+                <p>Kullanıcıların kendi açık rızaları ile teklif istemek veya müteahhit kaydı oluşturmak amacıyla formlar üzerinden ilettikleri veriler şunlardır:</p>
                 <ul>
-                    <li><strong>Yerel Veri Saklama ve Sunucusuz Çalışma:</strong> Uygulama tamamen kullanıcının cihazında yerel olarak çalışır. Girdiğiniz kredi tutarları, hane halkı gelir verileri, vade tercihleri veya hesaplama simülasyon sonuçları hiçbir harici bulut sunucusuna aktarılmaz, kaydedilmez ve üçüncü şahıslarla paylaşılmaz.</li>
-                    <li><strong>Kişisel Veri Toplamama:</strong> Uygulama; ad, soyad, T.C. kimlik numarası, banka hesap/kredi kartı bilgileri, konum veya rehber gibi hiçbir kişisel veriyi toplamaz ve talep etmez.</li>
-                    <li><strong>Üçüncü Taraf Hizmetler ve Reklam Altyapısı:</strong>
+                    <li><strong>Mülk Malikleri ve Kat Malikleri İçin:</strong>
                         <ul>
-                            <li><strong>Google Mobile Ads (AdMob):</strong> Uygulamamızda banner ve geçiş reklamları göstermek amacıyla Google Mobile Ads SDK kullanılmaktadır. AdMob, reklamların sunumu, performans analizi ve sıklık kısıtlaması için cihazın anonim Reklam Kimliğini (Advertising ID / GAID) Google Gizlilik Politikası uyarınca işleyabilir.</li>
+                            <li><strong>Kimlik ve İletişim Bilgileri:</strong> Ad Soyad, Telefon Numarası, E-posta Adresi.</li>
+                            <li><strong>Taşınmaz ve Parsel Bilgileri:</strong> İl, İlçe, Mahalle, Bina/Yapı Açık Adresi, Harita Konum Bilgisi (Kullanıcının harita üzerinden kendi seçtiği enlem/boylam koordinatları), Mevcut ve Talep Edilen Bağımsız Bölüm (Daire/Dükkan) Sayısı, Arsa Payı Bilgisi.</li>
+                            <li><strong>Proje Notları:</strong> Dönüşüm talebi ile ilgili kullanıcının kendi yazdığı açıklama ve notlar.</li>
+                        </ul>
+                    </li>
+                    <li><strong>Müteahhit ve Yüklenici Firmalar İçin:</strong>
+                        <ul>
+                            <li><strong>Yetkili ve İletişim Bilgileri:</strong> Şirket/Firma Yetkilisinin Adı ve Soyadı, İletişim Telefonu, Kurumsal E-posta Adresi.</li>
+                            <li><strong>Ticari ve Mesleki Yeterlilik Bilgileri:</strong> Şirket / Ticaret Ünvanı, Çevre, Şehircilik ve İklim Değişikliği Bakanlığı Yetki Belgesi Numarası / Yetki Grubu (A'dan H'ye), Faaliyet ve Hizmet Verilen İller, Firma Açıklamaları.</li>
                         </ul>
                     </li>
                 </ul>
 
+                <h3>C. Veri İşleme Amaçları ve Hukuki Sebebi</h3>
+                <p>Kişisel verileriniz, 6698 sayılı KVKK’nın 5. maddesinin 1. fıkrası uyarınca <strong>"İlgili kişinin açık rızası"</strong> hukuki sebebine dayalı olarak aşağıdaki meşru amaçlarla işlenmektedir:</p>
+                <ul>
+                    <li>Mülk maliklerinin kentsel dönüşüm fizibilite ve yaklaşık maliyet taleplerinin değerlendirilmesi,</li>
+                    <li>Malik taleplerine uygun yetki belgesine sahip müteahhit firmalar ile teklif ve yerinde keşif eşleştirmesinin sağlanması,</li>
+                    <li>Teklif durumu, proje takvimi ve süreç bilgilendirmeleri için kullanıcı ile iletişimin kurulması,</li>
+                    <li>Sahte, mükerrer veya yetkisiz başvuruların önüne geçilerek sistem güvenliğinin sağlanması.</li>
+                </ul>
+
+                <h3>D. Veri Depolama, Güvenlik ve Altyapı</h3>
+                <p>Kullanıcı tarafından gönderilen teklif ve kayıt formları, güvenli SSL/TLS (HTTPS) şifreli ağ protokolleri üzerinden doğrudan Google Cloud altyapısına (Google Sheets API & Google Cloud Apps Script güvenli bulut mimarisi) aktarılmakta olup yetkisiz erişimlere karşı endüstri standardı şifreleme ve erişim kontrol yöntemleri ile korunmaktadır.</p>
+
+                <h3>E. Verilerin Üçüncü Şahıslara Aktarımı</h3>
+                <p>Kişisel verileriniz kesinlikle ticari reklam, spam veya pazarlama amacıyla üçüncü şahıslara satılmaz ve devredilmez. Yalnızca maliklerin açık talebi doğrultusunda, ilgili parsele teklif hazırlayacak yetkili ve belgeli yüklenici firmalarla, projenin koordinasyonu sınırları dahilinde paylaşılabilir.</p>
+
+                <div class="rights-box">
+                    <strong>İlgili Kişi Hakları ve Veri Silme Talebi (KVKK Madde 11 & Google Play Veri Güvenliği Politikası):</strong><br>
+                    Kullanıcılarımız diledikleri zaman KVKK'nın 11. maddesi kapsamındaki haklarını kullanma; sistemde kayıtlı kişisel verilerini öğrenme, düzeltilmesini talep etme veya tüm verilerinin sistemlerimizden <strong>tamamen ve kalıcı olarak silinmesini</strong> isteme hakkına sahiptir.<br><br>
+                    Veri silme talepleriniz veya bilgi edinme başvurularınız için doğrudan resmi e-posta adreslerimiz olan <a href="mailto:kentseldonusumasistani@gmail.com" class="contact-email">kentseldonusumasistani@gmail.com</a> veya <a href="mailto:fabmorph@gmail.com" class="contact-email">fabmorph@gmail.com</a> adresine e-posta iletmeniz yeterlidir. Silme talebiniz en geç <strong>72 saat</strong> içerisinde işleme alınarak kayıtlarınız sistemlerimizden geri döndürülemez biçimde silinecektir.
+                </div>
+
+                <h3>F. Üçüncü Taraf Reklam Altyapısı</h3>
+                <p>Uygulama içerisinde finansal hesaplama ve rehber sayfalarında Google Mobile Ads (AdMob) SDK aracılığıyla genel reklamlar sunulabilir. AdMob, sahteciliği önlemek ve sıklık kısıtlaması uygulamak amacıyla cihazın anonim Reklam Kimliğini (GAID) Google Gizlilik Politikası kapsamında işleyebilir.</p>
+
                 <div class="disclaimer-box">
                     <strong>Resmi Kurum ve Yasal Sorumsuzluk Beyanı (Legal Disclaimer):</strong><br>
-                    Bu uygulama Çevre, Şehircilik ve İklim Değişikliği Bakanlığı, Kentsel Dönüşüm Başkanlığı, herhangi bir devlet kurumu veya bankaya bağlı değildir. Uygulama içerisinde sunulan hesaplamalar, faiz indirimi simülasyonları ve rehber içerikleri yalnızca genel bilgilendirme amaçlıdır. Kesin kredi tutarları, faiz indirim oranları, tahsis şartları ve asgari gelir kriterleri ilgili resmi kurumların ve anlaşmalı bankaların nihai onay süreçlerine tabidir.
+                    Bu uygulama ve web platformu; Çevre, Şehircilik ve İklim Değişikliği Bakanlığı, Kentsel Dönüşüm Başkanlığı veya herhangi bir resmi devlet kurumu ile doğrudan bağlantılı veya bunların resmi temsilcisi değildir. Uygulama içerisindeki simülasyonlar, hibe hesaplamaları ve rehberler genel bilgilendirme amaçlı olup; kesin kredi onayları, hibe tahsisleri ve ruhsat işlemleri ilgili idarelerin ve anlaşmalı bankaların nihai değerlendirmesine tabidir.
                 </div>
             </div>
         </div>
@@ -339,19 +399,20 @@
 
     <!-- ENGLISH SECTION -->
     <div id="section-en" class="lang-section">
-        <p style="margin-bottom: 20px;">FabMorph ("Developer", "We", "Us") respects your privacy. This Privacy Policy applies to all mobile applications published by FabMorph.</p>
+        <p style="margin-bottom: 20px;">FabMorph ("Developer", "We", "Us") respects your privacy. This Privacy Policy applies to all mobile and web applications developed and published by FabMorph.</p>
 
         <!-- ACCORDION 1 -->
         <div class="accordion-item active">
             <button class="accordion-header" onclick="toggleAccordion(this)">
-                <span class="title-text">1. General Principles & Data Protection</span>
+                <span class="title-text">1. General Principles, Transparency & Data Protection</span>
                 <svg class="accordion-icon" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"></polyline></svg>
             </button>
             <div class="accordion-content">
-                <p>Our core principle at FabMorph is to provide a transparent, secure, and privacy-focused experience for all users.</p>
+                <p>Our core philosophy at FabMorph is transparency, data minimization, and protecting user privacy:</p>
                 <ul>
-                    <li><strong>No Personal Data Collection:</strong> We do not collect, process, or share personally identifiable information (PII) such as names, email addresses, phone numbers, or precise location data.</li>
-                    <li><strong>Serverless Architecture:</strong> Your data is never transmitted to or stored on external cloud servers or databases; it resides 100% locally on your device.</li>
+                    <li><strong>Anonymous & Serverless Core:</strong> Core features of our applications such as financial calculators, simulation engines, and habit trackers operate entirely locally on your device with no personal data transmitted to external servers.</li>
+                    <li><strong>Voluntary Consent-Based Collection:</strong> Only in specialized interactive modules where users explicitly submit a proposal or registration request (such as Urban Transformation quote and contractor matching forms), personal data is processed strictly based on user consent in full compliance with GDPR, KVKK, and Google Play Data Safety policies.</li>
+                    <li><strong>No Sale of Personal Data:</strong> FabMorph never sells, rents, or trades user personal data to third-party advertisers, data brokers, or marketing platforms.</li>
                 </ul>
             </div>
         </div>
@@ -365,7 +426,7 @@
             <div class="accordion-content">
                 <p>This section covers privacy and data retention terms specific to <strong>ThisOne - Quit Smoking & Habit Tracker</strong>:</p>
                 <ul>
-                    <li><strong>Local Data Storage:</strong> Habit logs, money/time savings calculations, timestamps, and app preferences entered in ThisOne are stored strictly on your local device (SharedPreferences). This data is never uploaded to FabMorph servers.</li>
+                    <li><strong>Local Data Storage:</strong> Habit logs, savings calculations, timestamps, and app preferences entered in ThisOne are stored strictly on your local device (SharedPreferences). This data is never uploaded to FabMorph servers.</li>
                     <li><strong>Third-Party Services & Ad Infrastructure:</strong>
                         <ul>
                             <li><strong>Google Mobile Ads (AdMob):</strong> We use Google AdMob to serve non-intrusive banner and interstitial advertisements. AdMob may process anonymous device Advertising IDs (GAID) for ad delivery, analytics, and frequency capping under Google's Privacy Policy. Ads are completely disabled for Pro users.</li>
@@ -384,26 +445,62 @@
         </div>
 
         <!-- ACCORDION 3 -->
-        <div class="accordion-item">
+        <div class="accordion-item active">
             <button class="accordion-header" onclick="toggleAccordion(this)">
-                <span class="title-text">3. "Urban Transformation Loan Calculator" Specific Privacy Terms</span>
+                <span class="title-text">3. "Urban Transformation Assistant" Specific Privacy & Data Safety Terms</span>
                 <svg class="accordion-icon" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"></polyline></svg>
             </button>
             <div class="accordion-content">
-                <p>This section covers privacy, data retention, and legal disclaimer terms specific to <strong>Urban Transformation Loan Calculator</strong> (Kentsel Dönüşüm Kredi Hesaplama Aracı):</p>
+                <p>This section covers privacy, personal data processing, and compliance standards specific to the <strong>Urban Transformation Assistant</strong> (Kentsel Dönüşüm Asistanı) application and web portal:</p>
+
+                <h3>A. Local & Serverless Features (Anonymous Modules)</h3>
+                <p>Subsidized Loan Calculations, Rent & Relocation Assistance Simulations, State Grant Calculations ("Half From Us / Yarısı Bizden"), and Eviction Legal Timelines operate entirely locally on your device. Your financial inputs, income levels, and simulation results are never transmitted to external servers and remain on your device.</p>
+
+                <h3>B. Personal Data Collected via "Get Quote & Contractor Portal"</h3>
+                <p>When users voluntarily submit project inquiries or contractor applications via the portal, the following personal data is collected based on explicit user consent:</p>
                 <ul>
-                    <li><strong>Local Data Storage & Serverless Operation:</strong> The application operates entirely locally on your device. Loan amounts, household income inputs, maturity selections, or simulation results are never transmitted to, saved on, or shared with external cloud servers.</li>
-                    <li><strong>No Personal Data Collection:</strong> The app does not request, collect, or process personally identifiable information (PII) such as national ID numbers, banking/credit card credentials, precise location, or contact lists.</li>
-                    <li><strong>Third-Party Services & Ad Infrastructure:</strong>
+                    <li><strong>For Property Owners & Residents:</strong>
                         <ul>
-                            <li><strong>Google Mobile Ads (AdMob):</strong> We use Google AdMob to serve non-intrusive advertisements. AdMob may process anonymous device Advertising IDs (GAID) for ad delivery, analytics, and frequency capping under Google's Privacy Policy.</li>
+                            <li><strong>Identity & Contact Information:</strong> Full Name, Phone Number, Email Address.</li>
+                            <li><strong>Property & Parcel Information:</strong> City, District, Neighborhood, Street Address, Map Location Data (User-pinned latitude and longitude coordinates), Existing and Requested Number of Units/Apartments, Land Share ratio.</li>
+                            <li><strong>Project Description:</strong> Voluntary notes, comments, and requests regarding the renewal project.</li>
+                        </ul>
+                    </li>
+                    <li><strong>For Contractors & Construction Firms:</strong>
+                        <ul>
+                            <li><strong>Authorized Representative & Contact:</strong> Full Name, Business Phone Number, Corporate Email Address.</li>
+                            <li><strong>Company & Professional Qualifications:</strong> Official Corporate Name, Ministry Contractor Authorization Certificate Group (Grades A through H), Operating Cities, Company Overview.</li>
                         </ul>
                     </li>
                 </ul>
 
+                <h3>C. Purpose of Processing and Legal Basis</h3>
+                <p>Data is processed in compliance with GDPR and Turkish KVKK Law No. 6698 based on <strong>explicit user consent</strong> for the following purposes:</p>
+                <ul>
+                    <li>Evaluating feasibility, project scope, and construction estimations for renewal candidates,</li>
+                    <li>Matching property owners with licensed, certified contractors capable of providing accurate bids,</li>
+                    <li>Communicating project updates, inspection schedules, and proposal statuses with users,</li>
+                    <li>Preventing fraudulent, duplicate, or spam submissions.</li>
+                </ul>
+
+                <h3>D. Data Storage, Cloud Infrastructure & Security</h3>
+                <p>Submitted inquiry forms are transmitted securely over TLS/SSL (HTTPS) encrypted protocols directly to Google Cloud enterprise infrastructure (Google Sheets API & Google Cloud Apps Script cloud architecture) and stored with industry-standard encryption and strict access controls.</p>
+
+                <h3>E. Data Sharing with Third Parties</h3>
+                <p>We do not sell, rent, or trade personal data to third parties for marketing or advertising. Data is only shared with verified, licensed contractors who are directly assigned to prepare a feasibility proposal upon the property owner's request.</p>
+
+                <div class="rights-box">
+                    <strong>User Rights & Data Deletion Requests (Google Play Data Safety & GDPR):</strong><br>
+                    Users have the right to request access to, rectify, or request <strong>permanent deletion</strong> of their stored personal data at any time.<br><br>
+                    To request the complete deletion of your data, simply send an email to our official contacts: <a href="mailto:kentseldonusumasistani@gmail.com" class="contact-email">kentseldonusumasistani@gmail.com</a> or <a href="mailto:fabmorph@gmail.com" class="contact-email">fabmorph@gmail.com</a>. All deletion requests are processed and verified within <strong>72 hours</strong>, permanently removing your records from our systems.
+                </div>
+
+                <h3>F. Advertising Infrastructure</h3>
+                <p>The application may display non-intrusive banner advertisements via Google Mobile Ads (AdMob). AdMob may process anonymous device Advertising IDs (GAID) for ad delivery and fraud prevention under Google's Privacy Policy.</p>
+
                 <div class="disclaimer-box">
                     <strong>Official Entity & Legal Disclaimer:</strong><br>
-                    This application is an independent calculation tool and is not affiliated with, endorsed by, or representing any government ministry, official urban transformation authority, or financial institution. Calculations, rate simulations, and guidelines provided within the app are strictly for informational purposes. Final loan approvals, interest subsidy rates, and eligibility criteria are subject to official government regulations and partner bank procedures.
+                    This application is an independent calculation and matching platform and is not affiliated with, endorsed by, or officially representing the Ministry of Environment, Urbanisation and Climate Change, the Urban Transformation Directorate, or any governmental agency. Final loan approvals, subsidies, and official permits are subject to regulatory authorities and partner banks.
                 </div>
             </div>
         </div>
@@ -421,7 +518,8 @@
     </div>
 
     <div class="footer">
-        <span id="footer-contact">Gizlilik politikamız hakkındaki sorularınız için: </span> 
+        <span id="footer-contact">Gizlilik politikamız veya veri silme talepleriniz için: </span> 
+        <a href="mailto:kentseldonusumasistani@gmail.com" class="contact-email">kentseldonusumasistani@gmail.com</a> | 
         <a href="mailto:fabmorph@gmail.com" class="contact-email">fabmorph@gmail.com</a><br>
         &copy; 2026 FabMorph. All rights reserved.
     </div>
@@ -440,16 +538,16 @@
         if (lang === 'en') {
             document.getElementById('section-en').classList.add('active');
             document.getElementById('btn-en').classList.add('active');
-            document.getElementById('header-subtitle').innerText = 'Official Privacy Policy';
-            document.getElementById('header-meta').innerText = 'Last Updated: September 3, 2026';
-            document.getElementById('footer-contact').innerText = 'Questions regarding our privacy policy? Email us: ';
+            document.getElementById('header-subtitle').innerText = 'Official Privacy Policy & Data Safety';
+            document.getElementById('header-meta').innerText = 'Last Updated: October 12, 2026';
+            document.getElementById('footer-contact').innerText = 'Questions or data deletion requests? Contact us: ';
             document.documentElement.lang = 'en';
         } else {
             document.getElementById('section-tr').classList.add('active');
             document.getElementById('btn-tr').classList.add('active');
-            document.getElementById('header-subtitle').innerText = 'Mobil Uygulamaları Resmi Gizlilik Politikası';
-            document.getElementById('header-meta').innerText = 'Son Güncelleme Tarihi: 3 Eylül 2026';
-            document.getElementById('footer-contact').innerText = 'Gizlilik politikamız hakkındaki sorularınız için: ';
+            document.getElementById('header-subtitle').innerText = 'Resmi Gizlilik Politikası & KVKK Aydınlatma Metni';
+            document.getElementById('header-meta').innerText = 'Son Güncelleme Tarihi: 12 Ekim 2026';
+            document.getElementById('footer-contact').innerText = 'Gizlilik politikamız veya veri silme talepleriniz için: ';
             document.documentElement.lang = 'tr';
         }
     }
