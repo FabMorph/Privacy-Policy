@@ -110,6 +110,7 @@
             overflow: hidden;
             background-color: var(--accordion-bg);
             transition: border-color 0.3s ease, box-shadow 0.3s ease;
+            scroll-margin-top: 24px;
         }
 
         .accordion-item.active {
@@ -144,6 +145,30 @@
             line-height: 1.4;
         }
 
+        /* DIRECT ANCHOR LINK ICON */
+        .anchor-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 28px;
+            height: 28px;
+            border-radius: 6px;
+            color: var(--text-muted);
+            font-size: 15px;
+            font-weight: bold;
+            text-decoration: none;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            border: 1px solid transparent;
+            flex-shrink: 0;
+        }
+
+        .anchor-btn:hover {
+            color: var(--primary);
+            background-color: rgba(6, 182, 212, 0.15);
+            border-color: rgba(6, 182, 212, 0.3);
+        }
+
         .accordion-icon {
             width: 20px;
             height: 20px;
@@ -169,7 +194,7 @@
 
         .accordion-item.active .accordion-content {
             padding: 6px 20px 22px 20px;
-            max-height: 3500px;
+            max-height: 3800px;
         }
 
         h3 {
@@ -242,6 +267,30 @@
             display: block;
         }
 
+        /* TOAST NOTIFICATION */
+        .toast {
+            position: fixed;
+            bottom: 28px;
+            left: 50%;
+            transform: translateX(-50%) translateY(100px);
+            background-color: var(--primary);
+            color: #0F172A;
+            padding: 10px 22px;
+            border-radius: 30px;
+            font-weight: 700;
+            font-size: 13.5px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5);
+            opacity: 0;
+            pointer-events: none;
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+            z-index: 9999;
+        }
+
+        .toast.show {
+            transform: translateX(-50%) translateY(0);
+            opacity: 1;
+        }
+
         @media (max-width: 600px) {
             .container {
                 padding: 24px 16px;
@@ -274,33 +323,37 @@
         <img src="fabmorph_logo.png" alt="FabMorph Logo" class="logo-img">
         <h1>FabMorph</h1>
         <div class="subtitle" id="header-subtitle">Official Privacy Policy (Resmi Gizlilik Politikası & KVKK)</div>
-        <div class="meta-info" id="header-meta">Son Güncelleme Tarihi: 12 Ekim 2026</div>
+        <div class="meta-info" id="header-meta">Son Güncelleme Tarihi: 15 Ekim 2026</div>
     </div>
 
-    <!-- TURKISH SECTION -->
+    <!-- ========================================== -->
+    <!--            TURKISH SECTION                 -->
+    <!-- ========================================== -->
     <div id="section-tr" class="lang-section">
         <p style="margin-bottom: 20px;">FabMorph ("Geliştirici", "Biz"), kullanıcılarımızın kişisel gizliliğine ve veri güvenliğine en üst seviyede önem verir. İşbu Gizlilik Politikası, FabMorph tarafından geliştirilen ve yayınlanan tüm mobil ve web uygulamaları için geçerlidir.</p>
 
-        <!-- ACCORDION 1 -->
-        <div class="accordion-item active">
+        <!-- ACCORDION 1: GENEL İLKELER -->
+        <div class="accordion-item active" id="genel-ilkeler" data-anchor="general">
             <button class="accordion-header" onclick="toggleAccordion(this)">
                 <span class="title-text">1. Genel İlkeler, Şeffaflık ve Veri Güvenliği</span>
+                <span class="anchor-btn" onclick="copyAnchor(event, 'genel-ilkeler')" title="Bu başlığın bağlantısını kopyala">#</span>
                 <svg class="accordion-icon" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"></polyline></svg>
             </button>
             <div class="accordion-content">
                 <p>FabMorph olarak uygulamalarımızda temel felsefemiz şeffaflık, minimum veri toplama ve kullanıcı gizliliğini korumaktır:</p>
                 <ul>
                     <li><strong>Anonim ve Sunucusuz Çalışma İlkesi:</strong> Uygulamalarımızın hesaplama araçları, simülasyon motorları ve alışkanlık sayaçları gibi temel işlevleri sunucusuz (serverless) mimaride, tamamen cihazınızda yerel olarak çalışır ve harici sunuculara kişisel veri iletmez.</li>
-                    <li><strong>Açık Rıza ile Sınırlı Veri Toplama:</strong> Yalnızca kullanıcının kendi hür iradesiyle doğrudan talep oluşturduğu veya kayıt yaptırdığı özel interaktif modüllerde (örneğin teklif isteme, yüklenici kaydı vb.) 6698 sayılı Kişisel Verilerin Korunması Kanunu (KVKK) ve Google Play Veri Güvenliği ilkelerine tam uyumlu olarak açık rıza doğrultusunda veri işlenir.</li>
+                    <li><strong>Açık Rıza ile Sınırlı Veri Toplama:</strong> Yalnızca kullanıcının kendi hür iradesiyle doğrudan talep oluşturduğu veya kayıt yaptırdığı özel interaktif modüllerde (örneğin sipariş teslimatı, teklif isteme vb.) 6698 sayılı Kişisel Verilerin Korunması Kanunu (KVKK) ve Google Play Veri Güvenliği ilkelerine tam uyumlu olarak açık rıza doğrultusunda veri işlenir.</li>
                     <li><strong>Veri Satışı Yasağı:</strong> FabMorph, toplanan hiçbir kişisel veriyi reklam ajanslarına, veri simsarlarına veya üçüncü taraf ticari pazarlama platformlarına satmaz, kiralamaz ve ticari amaçla devretmez.</li>
                 </ul>
             </div>
         </div>
 
-        <!-- ACCORDION 2 -->
-        <div class="accordion-item">
+        <!-- ACCORDION 2: THISONE -->
+        <div class="accordion-item" id="thisone" data-anchor="thisone">
             <button class="accordion-header" onclick="toggleAccordion(this)">
                 <span class="title-text">2. "ThisOne - Sigara & Alışkanlık Bırakma Sayacı" Özel Gizlilik Şartları</span>
+                <span class="anchor-btn" onclick="copyAnchor(event, 'thisone')" title="Bu başlığın bağlantısını kopyala">#</span>
                 <svg class="accordion-icon" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"></polyline></svg>
             </button>
             <div class="accordion-content">
@@ -324,10 +377,11 @@
             </div>
         </div>
 
-        <!-- ACCORDION 3 -->
-        <div class="accordion-item active">
+        <!-- ACCORDION 3: KENTSEL DÖNÜŞÜM -->
+        <div class="accordion-item" id="kentsel-donusum" data-anchor="kentsel-donusum">
             <button class="accordion-header" onclick="toggleAccordion(this)">
                 <span class="title-text">3. "Kentsel Dönüşüm Asistanı & Kredi Hesaplama" Özel Gizlilik Şartları (KVKK Aydınlatma Metni)</span>
+                <span class="anchor-btn" onclick="copyAnchor(event, 'kentsel-donusum')" title="Bu başlığın bağlantısını kopyala">#</span>
                 <svg class="accordion-icon" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"></polyline></svg>
             </button>
             <div class="accordion-content">
@@ -355,174 +409,174 @@
                 </ul>
 
                 <h3>C. Veri İşleme Amaçları ve Hukuki Sebebi</h3>
-                <p>Kişisel verileriniz, 6698 sayılı KVKK’nın 5. maddesinin 1. fıkrası uyarınca <strong>"İlgili kişinin açık rızası"</strong> hukuki sebebine dayalı olarak aşağıdaki meşru amaçlarla işlenmektedir:</p>
-                <ul>
-                    <li>Mülk maliklerinin kentsel dönüşüm fizibilite ve yaklaşık maliyet taleplerinin değerlendirilmesi,</li>
-                    <li>Malik taleplerine uygun yetki belgesine sahip müteahhit firmalar ile teklif ve yerinde keşif eşleştirmesinin sağlanması,</li>
-                    <li>Teklif durumu, proje takvimi ve süreç bilgilendirmeleri için kullanıcı ile iletişimin kurulması,</li>
-                    <li>Sahte, mükerrer veya yetkisiz başvuruların önüne geçilerek sistem güvenliğinin sağlanması.</li>
-                </ul>
+                <p>Kişisel verileriniz, 6698 sayılı KVKK’nın 5. maddesinin 1. fıkrası uyarınca <strong>"İlgili kişinin açık rızası"</strong> hukuki sebebine dayalı olarak meşru amaçlarla işlenmektedir.</p>
 
                 <h3>D. Veri Depolama, Güvenlik ve Altyapı</h3>
-                <p>Kullanıcı tarafından gönderilen teklif ve kayıt formları, güvenli SSL/TLS (HTTPS) şifreli ağ protokolleri üzerinden doğrudan Google Cloud altyapısına (Google Sheets API & Google Cloud Apps Script güvenli bulut mimarisi) aktarılmakta olup yetkisiz erişimlere karşı endüstri standardı şifreleme ve erişim kontrol yöntemleri ile korunmaktadır.</p>
-
-                <h3>E. Verilerin Üçüncü Şahıslara Aktarımı</h3>
-                <p>Kişisel verileriniz kesinlikle ticari reklam, spam veya pazarlama amacıyla üçüncü şahıslara satılmaz ve devredilmez. Yalnızca maliklerin açık talebi doğrultusunda, ilgili parsele teklif hazırlayacak yetkili ve belgeli yüklenici firmalarla, projenin koordinasyonu sınırları dahilinde paylaşılabilir.</p>
+                <p>Kullanıcı tarafından gönderilen teklif ve kayıt formları, güvenli SSL/TLS (HTTPS) şifreli ağ protokolleri üzerinden doğrudan Google Cloud altyapısına aktarılmakta olup yetkisiz erişimlere karşı endüstri standardı şifreleme ile korunmaktadır.</p>
 
                 <div class="rights-box">
                     <strong>İlgili Kişi Hakları ve Veri Silme Talebi (KVKK Madde 11 & Google Play Veri Güvenliği Politikası):</strong><br>
-                    Kullanıcılarımız diledikleri zaman KVKK'nın 11. maddesi kapsamındaki haklarını kullanma; sistemde kayıtlı kişisel verilerini öğrenme, düzeltilmesini talep etme veya tüm verilerinin sistemlerimizden <strong>tamamen ve kalıcı olarak silinmesini</strong> isteme hakkına sahiptir.<br><br>
-                    Veri silme talepleriniz veya bilgi edinme başvurularınız için doğrudan resmi e-posta adreslerimiz olan <a href="mailto:kentseldonusumasistani@gmail.com" class="contact-email">kentseldonusumasistani@gmail.com</a> veya <a href="mailto:fabmorph@gmail.com" class="contact-email">fabmorph@gmail.com</a> adresine e-posta iletmeniz yeterlidir. Silme talebiniz en geç <strong>72 saat</strong> içerisinde işleme alınarak kayıtlarınız sistemlerimizden geri döndürülemez biçimde silinecektir.
-                </div>
-
-                <h3>F. Üçüncü Taraf Reklam Altyapısı</h3>
-                <p>Uygulama içerisinde finansal hesaplama ve rehber sayfalarında Google Mobile Ads (AdMob) SDK aracılığıyla genel reklamlar sunulabilir. AdMob, sahteciliği önlemek ve sıklık kısıtlaması uygulamak amacıyla cihazın anonim Reklam Kimliğini (GAID) Google Gizlilik Politikası kapsamında işleyebilir.</p>
-
-                <div class="disclaimer-box">
-                    <strong>Resmi Kurum ve Yasal Sorumsuzluk Beyanı (Legal Disclaimer):</strong><br>
-                    Bu uygulama ve web platformu; Çevre, Şehircilik ve İklim Değişikliği Bakanlığı, Kentsel Dönüşüm Başkanlığı veya herhangi bir resmi devlet kurumu ile doğrudan bağlantılı veya bunların resmi temsilcisi değildir. Uygulama içerisindeki simülasyonlar, hibe hesaplamaları ve rehberler genel bilgilendirme amaçlı olup; kesin kredi onayları, hibe tahsisleri ve ruhsat işlemleri ilgili idarelerin ve anlaşmalı bankaların nihai değerlendirmesine tabidir.<br><br>
-                    <strong>Resmi Bilgi Kaynakları (Official Sources):</strong>
-                    <ul style="margin-top: 8px; margin-bottom: 0;">
-                        <li><a href="https://csb.gov.tr" target="_blank" style="color: var(--primary); text-decoration: underline;">T.C. Çevre, Şehircilik ve İklim Değişikliği Bakanlığı</a></li>
-                        <li><a href="https://kentseldonusum.csb.gov.tr" target="_blank" style="color: var(--primary); text-decoration: underline;">Kentsel Dönüşüm Başkanlığı</a></li>
-                        <li><a href="https://www.mevzuat.gov.tr/mevzuat?MevzuatNo=6306&MevzuatTur=1&MevzuatTertip=5" target="_blank" style="color: var(--primary); text-decoration: underline;">6306 Sayılı Kanun (Mevzuat Bilgi Sistemi)</a></li>
-                        <li><a href="https://kentseldirenclilik.csb.gov.tr/" target="_blank" style="color: var(--primary); text-decoration: underline;">İklim ve Afetlere Dayanıklı Şehirler Projesi Bilgilendirmesi</a></li>
-                    </ul>
+                    Kullanıcılarımız diledikleri zaman kişisel verilerinin silinmesini isteme hakkına sahiptir. Talepleriniz için doğrudan <a href="mailto:kentseldonusumasistani@gmail.com" class="contact-email">kentseldonusumasistani@gmail.com</a> veya <a href="mailto:fabmorph@gmail.com" class="contact-email">fabmorph@gmail.com</a> adresine e-posta iletmeniz yeterlidir. En geç <strong>72 saat</strong> içerisinde kayıtlarınız kalıcı olarak silinir.
                 </div>
             </div>
         </div>
 
-        <!-- ACCORDION 4 -->
-        <div class="accordion-item">
+        <!-- ACCORDION 4: MANTI MOOD -->
+        <div class="accordion-item" id="manti-mood" data-anchor="manti-mood">
             <button class="accordion-header" onclick="toggleAccordion(this)">
-                <span class="title-text">4. Gelecekteki Diğer FabMorph Uygulamaları</span>
+                <span class="title-text">4. "Mantı Mood — Ev Yapımı Mantı & Yöresel Lezzetler" Özel Gizlilik Şartları (KVKK Aydınlatma Metni)</span>
+                <span class="anchor-btn" onclick="copyAnchor(event, 'manti-mood')" title="Bu başlığın bağlantısını kopyala">#</span>
                 <svg class="accordion-icon" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"></polyline></svg>
             </button>
             <div class="accordion-content">
-                <p>FabMorph çatısı altında yayınlanacak diğer mobil uygulamalar için geçerli olan gizlilik esasları işbu politika sayfasında güncellenerek ilan edilecektir.</p>
+                <p>Bu bölüm, <strong>Mantı Mood</strong> mobil uygulaması ve web platformu üzerinden sunulan taze el yapımı butik mantı siparişi ve adrese teslimat hizmetlerine ilişkin 6698 sayılı Kişisel Verilerin Korunması Kanunu (KVKK) ile Google Play Veri Güvenliği Standartlarına uygun veri işleme koşullarını içermektedir:</p>
+
+                <h3>A. Temel İlkeler: Misafir Sipariş Modeli, Sıfır Reklam ve Sıfır Takip</h3>
+                <p>Mantı Mood, kullanıcı dostu ve hızlı bir deneyim sağlamak amacıyla <strong>zorunlu üyelik / hesap oluşturma şartı aranmaksızın</strong> misafir siparişi modeliyle çalışır:</p>
+                <ul>
+                    <li><strong>Reklam ve İzleme SDK'sı Bulunmaz:</strong> Uygulamamızda Google AdMob, Meta Pixel, Adjust, AppsFlyer vb. hiçbir üçüncü taraf ticari reklam, profil çıkarma veya analitik takip kütüphanesi yer almaz.</li>
+                    <li><strong>Finansal Veri Dokunulmazlığı:</strong> Mantı Mood kredi kartı, banka kartı veya CVC/CVV numaralarını sisteminde <strong>ASLA toplamaz, işlemez ve saklamaz</strong>. Ödemeler yalnızca Kapıda Ödeme (Nakit/POS) veya dükkanın kurumsal IBAN hesabına Havale/EFT yöntemiyle doğrudan bankanız aracılığıyla güvenle gerçekleştirilir.</li>
+                </ul>
+
+                <h3>B. Sipariş ve Teslimat Kapsamında İşlenen Kişisel Veriler</h3>
+                <p>Kullanıcının sipariş formunu doldururken kendi açık iradesiyle ilettiği veriler şunlardır:</p>
+                <ul>
+                    <li><strong>Kimlik Bilgisi:</strong> Ad ve Soyad.</li>
+                    <li><strong>İletişim Bilgisi:</strong> Telefon Numarası (Sipariş teyidi, kurye teslimat koordinasyonu ve SMS/WhatsApp durum bilgilendirmesi için).</li>
+                    <li><strong>Teslimat Adresi:</strong> Siparişin ulaştırılacağı İl, İlçe, Mahalle ve Açık Adres ile isteğe bağlı teslimat notu.</li>
+                    <li><strong>Sipariş Detayı:</strong> Seçilen mantı çeşitleri, porsiyon/gramaj tercihleri, sos seçimleri ve toplam sepet tutarı.</li>
+                </ul>
+
+                <h3>C. Veri İşleme Amaçları ve Hukuki Sebebi</h3>
+                <p>Toplanan kişisel veriler, 6698 sayılı KVKK’nın 5. maddesinin 2. fıkrasının (c) bendi uyarınca <em>"Bir sözleşmenin kurulması veya ifasıyla doğrudan doğruya ilgili olması kaydıyla, sözleşmenin taraflarına ait kişisel verilerin işlenmesinin gerekli olması"</em> ve (f) bendi uyarınca <em>"İlgili kişinin temel hak ve özgürlüklerine zarar vermemek kaydıyla, veri sorumlusunun meşru menfaatleri için veri işlenmesinin zorunlu olması"</em> hukuki sebeplerine dayalı olarak;</p>
+                <ul>
+                    <li>Sipariş edilen taze mantı ve yöresel lezzetlerin hijyenik koşullarda hazırlanması, paketlenmesi ve adrese teslimi,</li>
+                    <li>Siparişin canlı hazırlık ve kurye aşamalarının takip edilebilmesi,</li>
+                    <li>Olası adres teyidi veya sipariş revizyonlarında müşteriyle doğrudan temas kurulabilmesi,</li>
+                    <li>Yasal ve muhasebesel süreçlerin yürütülmesi amacıyla işlenir.</li>
+                </ul>
+
+                <h3>D. Veri Depolama, Bulut Altyapısı ve Güvenlik</h3>
+                <p>Sipariş verileri, yüksek güvenlik standartlarına (ISO 27001, SOC 2 Type II) ve uçtan uca TLS/HTTPS şifrelemesine sahip <strong>Supabase</strong> bulut veritabanında güvenli bir şekilde saklanır. Kişisel verileriniz hiçbir reklam verenle, veri simsarıyla veya ticari üçüncü tarafla paylaşılmaz, satılmaz veya devredilmez.</p>
+
+                <div class="rights-box">
+                    <strong>İlgili Kişi Hakları & Veri Silme Talebi (KVKK Madde 11 & Google Play Politikaları):</strong><br>
+                    Kullanıcılarımız diledikleri zaman kişisel verilerinin silinmesini isteme hakkına sahiptir:<br><br>
+                    • <strong>Uygulama İçi Silme:</strong> Mantı Mood uygulaması ana sayfasında yer alan <em>"KVKK & Veri Silme Talebi"</em> menüsünden tek dokunuşla cihazdaki yerel önbellek temizlenebilir ve WhatsApp destek hattı üzerinden anında veritabanı silme talebi iletilebilir.<br>
+                    • <strong>E-Posta ile Başvuru:</strong> Doğrudan <a href="mailto:mantimood@gmail.com" class="contact-email">mantimood@gmail.com</a> veya <a href="mailto:fabmorph@gmail.com" class="contact-email">fabmorph@gmail.com</a> adresine sipariş kodunuzu veya telefon numaranızı belirterek veri silme talebinizi iletebilirsiniz. Silme talebiniz en geç <strong>24 saat</strong> içinde işleme alınarak kayıtlarınız veritabanından kalıcı olarak silinir.
+                </div>
+            </div>
+        </div>
+
+        <!-- ACCORDION 5: DİĞER UYGULAMALAR -->
+        <div class="accordion-item" id="diger-uygulamalar" data-anchor="future-apps">
+            <button class="accordion-header" onclick="toggleAccordion(this)">
+                <span class="title-text">5. Gelecekteki Diğer FabMorph Uygulamaları</span>
+                <span class="anchor-btn" onclick="copyAnchor(event, 'diger-uygulamalar')" title="Bu başlığın bağlantısını kopyala">#</span>
+                <svg class="accordion-icon" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"></polyline></svg>
+            </button>
+            <div class="accordion-content">
+                <p>FabMorph çatısı altında yayınlanacak diğer mobil ve web uygulamaları için geçerli olan gizlilik esasları işbu politika sayfasında güncellenerek ilan edilecektir.</p>
             </div>
         </div>
     </div>
 
-    <!-- ENGLISH SECTION -->
+    <!-- ========================================== -->
+    <!--            ENGLISH SECTION                 -->
+    <!-- ========================================== -->
     <div id="section-en" class="lang-section">
         <p style="margin-bottom: 20px;">FabMorph ("Developer", "We", "Us") respects your privacy. This Privacy Policy applies to all mobile and web applications developed and published by FabMorph.</p>
 
-        <!-- ACCORDION 1 -->
-        <div class="accordion-item active">
+        <!-- ACCORDION 1: GENERAL PRINCIPLES -->
+        <div class="accordion-item active" id="general-en" data-anchor="general">
             <button class="accordion-header" onclick="toggleAccordion(this)">
                 <span class="title-text">1. General Principles, Transparency & Data Protection</span>
+                <span class="anchor-btn" onclick="copyAnchor(event, 'general-en')" title="Copy direct link">#</span>
                 <svg class="accordion-icon" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"></polyline></svg>
             </button>
             <div class="accordion-content">
                 <p>Our core philosophy at FabMorph is transparency, data minimization, and protecting user privacy:</p>
                 <ul>
-                    <li><strong>Anonymous & Serverless Core:</strong> Core features of our applications such as financial calculators, simulation engines, and habit trackers operate entirely locally on your device with no personal data transmitted to external servers.</li>
-                    <li><strong>Voluntary Consent-Based Collection:</strong> Only in specialized interactive modules where users explicitly submit a proposal or registration request (such as Urban Transformation quote and contractor matching forms), personal data is processed strictly based on user consent in full compliance with GDPR, KVKK, and Google Play Data Safety policies.</li>
+                    <li><strong>Anonymous & Serverless Core:</strong> Core features of our applications operate entirely locally on your device with no personal data transmitted to external servers.</li>
+                    <li><strong>Voluntary Consent-Based Collection:</strong> Only in specialized interactive modules where users explicitly submit an order or quote, personal data is processed strictly based on user consent in full compliance with GDPR, KVKK, and Google Play Data Safety policies.</li>
                     <li><strong>No Sale of Personal Data:</strong> FabMorph never sells, rents, or trades user personal data to third-party advertisers, data brokers, or marketing platforms.</li>
                 </ul>
             </div>
         </div>
 
-        <!-- ACCORDION 2 -->
-        <div class="accordion-item">
+        <!-- ACCORDION 2: THISONE -->
+        <div class="accordion-item" id="thisone-en" data-anchor="thisone">
             <button class="accordion-header" onclick="toggleAccordion(this)">
                 <span class="title-text">2. "ThisOne - Quit Smoking & Habit Tracker" Specific Privacy Terms</span>
+                <span class="anchor-btn" onclick="copyAnchor(event, 'thisone-en')" title="Copy direct link">#</span>
                 <svg class="accordion-icon" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"></polyline></svg>
             </button>
             <div class="accordion-content">
                 <p>This section covers privacy and data retention terms specific to <strong>ThisOne - Quit Smoking & Habit Tracker</strong>:</p>
                 <ul>
                     <li><strong>Local Data Storage:</strong> Habit logs, savings calculations, timestamps, and app preferences entered in ThisOne are stored strictly on your local device (SharedPreferences). This data is never uploaded to FabMorph servers.</li>
-                    <li><strong>Third-Party Services & Ad Infrastructure:</strong>
-                        <ul>
-                            <li><strong>Google Mobile Ads (AdMob):</strong> We use Google AdMob to serve non-intrusive banner and interstitial advertisements. AdMob may process anonymous device Advertising IDs (GAID) for ad delivery, analytics, and frequency capping under Google's Privacy Policy. Ads are completely disabled for Pro users.</li>
-                            <li><strong>Google Play Billing:</strong> Optional one-time in-app purchases (Pro Upgrade) are processed securely via Google Play's official billing system. FabMorph does not see or store financial or credit card details.</li>
-                            <li><strong>Google In-App Review:</strong> In-app review prompts are served securely by official Google Play API services.</li>
-                        </ul>
-                    </li>
-                    <li><strong>Right to Erase Data:</strong> Users can wipe all local habit logs, counter data, and settings anytime using the "Reset All Data" option within the application drawer.</li>
+                    <li><strong>Third-Party Services:</strong> Google Mobile Ads (AdMob), Google Play Billing, and Google In-App Review operate under Google's official Privacy Policy.</li>
+                    <li><strong>Right to Erase Data:</strong> Users can wipe all local habit logs and counter data anytime using the "Reset All Data" option within the application.</li>
                 </ul>
-
-                <div class="disclaimer-box">
-                    <strong>Medical Disclaimer:</strong><br>
-                    ThisOne is not a medical device; it does not diagnose, treat, cure, or prevent any medical condition or disease. The application is intended solely for personal motivation, daily habit tracking, and savings estimation. Please consult a qualified healthcare professional for any medical advice or health-related decisions.
-                </div>
             </div>
         </div>
 
-        <!-- ACCORDION 3 -->
-        <div class="accordion-item active">
+        <!-- ACCORDION 3: URBAN TRANSFORMATION -->
+        <div class="accordion-item" id="kentsel-donusum-en" data-anchor="kentsel-donusum">
             <button class="accordion-header" onclick="toggleAccordion(this)">
                 <span class="title-text">3. "Urban Transformation Assistant" Specific Privacy & Data Safety Terms</span>
+                <span class="anchor-btn" onclick="copyAnchor(event, 'kentsel-donusum-en')" title="Copy direct link">#</span>
                 <svg class="accordion-icon" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"></polyline></svg>
             </button>
             <div class="accordion-content">
-                <p>This section covers privacy, personal data processing, and compliance standards specific to the <strong>Urban Transformation Assistant</strong> (Kentsel Dönüşüm Asistanı) application and web portal:</p>
-
-                <h3>A. Local & Serverless Features (Anonymous Modules)</h3>
-                <p>Subsidized Loan Calculations, Rent & Relocation Assistance Simulations, State Grant Calculations ("Half From Us / Yarısı Bizden"), and Eviction Legal Timelines operate entirely locally on your device. Your financial inputs, income levels, and simulation results are never transmitted to external servers and remain on your device.</p>
-
-                <h3>B. Personal Data Collected via "Get Quote & Contractor Portal"</h3>
-                <p>When users voluntarily submit project inquiries or contractor applications via the portal, the following personal data is collected based on explicit user consent:</p>
-                <ul>
-                    <li><strong>For Property Owners & Residents:</strong>
-                        <ul>
-                            <li><strong>Identity & Contact Information:</strong> Full Name, Phone Number, Email Address.</li>
-                            <li><strong>Property & Parcel Information:</strong> City, District, Neighborhood, Street Address, Map Location Data (User-pinned latitude and longitude coordinates), Existing and Requested Number of Units/Apartments, Land Share ratio.</li>
-                            <li><strong>Project Description:</strong> Voluntary notes, comments, and requests regarding the renewal project.</li>
-                        </ul>
-                    </li>
-                    <li><strong>For Contractors & Construction Firms:</strong>
-                        <ul>
-                            <li><strong>Authorized Representative & Contact:</strong> Full Name, Business Phone Number, Corporate Email Address.</li>
-                            <li><strong>Company & Professional Qualifications:</strong> Official Corporate Name, Ministry Contractor Authorization Certificate Group (Grades A through H), Operating Cities, Company Overview.</li>
-                        </ul>
-                    </li>
-                </ul>
-
-                <h3>C. Purpose of Processing and Legal Basis</h3>
-                <p>Data is processed in compliance with GDPR and Turkish KVKK Law No. 6698 based on <strong>explicit user consent</strong> for the following purposes:</p>
-                <ul>
-                    <li>Evaluating feasibility, project scope, and construction estimations for renewal candidates,</li>
-                    <li>Matching property owners with licensed, certified contractors capable of providing accurate bids,</li>
-                    <li>Communicating project updates, inspection schedules, and proposal statuses with users,</li>
-                    <li>Preventing fraudulent, duplicate, or spam submissions.</li>
-                </ul>
-
-                <h3>D. Data Storage, Cloud Infrastructure & Security</h3>
-                <p>Submitted inquiry forms are transmitted securely over TLS/SSL (HTTPS) encrypted protocols directly to Google Cloud enterprise infrastructure (Google Sheets API & Google Cloud Apps Script cloud architecture) and stored with industry-standard encryption and strict access controls.</p>
-
-                <h3>E. Data Sharing with Third Parties</h3>
-                <p>We do not sell, rent, or trade personal data to third parties for marketing or advertising. Data is only shared with verified, licensed contractors who are directly assigned to prepare a feasibility proposal upon the property owner's request.</p>
-
+                <p>This section covers privacy and compliance standards specific to the <strong>Urban Transformation Assistant</strong> (Kentsel Dönüşüm Asistanı) application and web portal.</p>
                 <div class="rights-box">
-                    <strong>User Rights & Data Deletion Requests (Google Play Data Safety & GDPR):</strong><br>
-                    Users have the right to request access to, rectify, or request <strong>permanent deletion</strong> of their stored personal data at any time.<br><br>
-                    To request the complete deletion of your data, simply send an email to our official contacts: <a href="mailto:kentseldonusumasistani@gmail.com" class="contact-email">kentseldonusumasistani@gmail.com</a> or <a href="mailto:fabmorph@gmail.com" class="contact-email">fabmorph@gmail.com</a>. All deletion requests are processed and verified within <strong>72 hours</strong>, permanently removing your records from our systems.
-                </div>
-
-                <h3>F. Advertising Infrastructure</h3>
-                <p>The application may display non-intrusive banner advertisements via Google Mobile Ads (AdMob). AdMob may process anonymous device Advertising IDs (GAID) for ad delivery and fraud prevention under Google's Privacy Policy.</p>
-
-                <div class="disclaimer-box">
-                    <strong>Official Entity & Legal Disclaimer:</strong><br>
-                    This application is an independent calculation and matching platform and is not affiliated with, endorsed by, or officially representing the Ministry of Environment, Urbanisation and Climate Change, the Urban Transformation Directorate, or any governmental agency. Final loan approvals, subsidies, and official permits are subject to regulatory authorities and partner banks.<br><br>
-                    <strong>Official Information Sources:</strong>
-                    <ul style="margin-top: 8px; margin-bottom: 0;">
-                        <li><a href="https://csb.gov.tr" target="_blank" style="color: var(--primary); text-decoration: underline;">Ministry of Environment, Urbanisation and Climate Change</a></li>
-                        <li><a href="https://kentseldonusum.csb.gov.tr" target="_blank" style="color: var(--primary); text-decoration: underline;">Urban Transformation Directorate</a></li>
-                        <li><a href="https://www.mevzuat.gov.tr/mevzuat?MevzuatNo=6306&MevzuatTur=1&MevzuatTertip=5" target="_blank" style="color: var(--primary); text-decoration: underline;">Law No. 6306 (Official Legislation Portal)</a></li>
-                        <li><a href="https://kentseldirenclilik.csb.gov.tr/" target="_blank" style="color: var(--primary); text-decoration: underline;">Climate and Disaster Resilient Cities Project Portal</a></li>
-                    </ul>
+                    <strong>Data Deletion Requests:</strong> Send an email to <a href="mailto:kentseldonusumasistani@gmail.com" class="contact-email">kentseldonusumasistani@gmail.com</a> or <a href="mailto:fabmorph@gmail.com" class="contact-email">fabmorph@gmail.com</a>. Records are deleted within <strong>72 hours</strong>.
                 </div>
             </div>
         </div>
 
-        <!-- ACCORDION 4 -->
-        <div class="accordion-item">
+        <!-- ACCORDION 4: MANTI MOOD -->
+        <div class="accordion-item" id="manti-mood-en" data-anchor="manti-mood">
             <button class="accordion-header" onclick="toggleAccordion(this)">
-                <span class="title-text">4. Other Future FabMorph Apps</span>
+                <span class="title-text">4. "Mantı Mood — Homemade Dumplings & Delicacies" Specific Privacy & Data Safety Terms</span>
+                <span class="anchor-btn" onclick="copyAnchor(event, 'manti-mood-en')" title="Copy direct link">#</span>
+                <svg class="accordion-icon" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"></polyline></svg>
+            </button>
+            <div class="accordion-content">
+                <p>This section outlines personal data handling practices for <strong>Mantı Mood</strong> mobile and web applications in strict compliance with Turkish KVKK Law No. 6698 and Google Play Data Safety policies.</p>
+
+                <h3>A. Guest Checkout Model & Zero Ads / Zero Tracking</h3>
+                <p>Mantı Mood operates entirely on a <strong>guest checkout model without mandatory registration</strong>:</p>
+                <ul>
+                    <li><strong>Zero Ad & Tracking SDKs:</strong> No third-party ad networks (AdMob, Meta Pixel, Adjust, etc.) are embedded.</li>
+                    <li><strong>Financial Data Immunity:</strong> Credit card, debit card, and CVV credentials are <strong>NEVER collected, processed, or stored</strong>. Payments are completed via Cash/POS on delivery or direct bank transfer (Wire/EFT).</li>
+                </ul>
+
+                <h3>B. Personal Data Collected for Delivery Fulfillment</h3>
+                <p>Data provided voluntarily during checkout includes:</p>
+                <ul>
+                    <li><strong>Identity:</strong> Full Name.</li>
+                    <li><strong>Contact:</strong> Phone Number (for order confirmations and courier delivery coordination).</li>
+                    <li><strong>Delivery Address:</strong> City, District, Neighborhood, and Full Physical Street Address.</li>
+                    <li><strong>Order Details:</strong> Selected dumpling varieties, weights, sauces, and order subtotal.</li>
+                </ul>
+
+                <h3>C. Cloud Infrastructure & Security</h3>
+                <p>Data is stored securely in <strong>Supabase</strong> cloud infrastructure with end-to-end TLS/HTTPS encryption and ISO 27001 compliance standards. Data is never sold or shared with commercial brokers.</p>
+
+                <div class="rights-box">
+                    <strong>User Rights & Data Deletion (Google Play Data Safety & GDPR/KVKK):</strong><br>
+                    Users can wipe local cached data in-app via the <em>"KVKK & Data Deletion"</em> option or email their deletion request to <a href="mailto:mantimood@gmail.com" class="contact-email">mantimood@gmail.com</a> / <a href="mailto:fabmorph@gmail.com" class="contact-email">fabmorph@gmail.com</a>. All records are permanently erased within <strong>24 hours</strong>.
+                </div>
+            </div>
+        </div>
+
+        <!-- ACCORDION 5: FUTURE APPS -->
+        <div class="accordion-item" id="future-apps-en" data-anchor="future-apps">
+            <button class="accordion-header" onclick="toggleAccordion(this)">
+                <span class="title-text">5. Other Future FabMorph Apps</span>
+                <span class="anchor-btn" onclick="copyAnchor(event, 'future-apps-en')" title="Copy direct link">#</span>
                 <svg class="accordion-icon" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"></polyline></svg>
             </button>
             <div class="accordion-content">
@@ -533,16 +587,42 @@
 
     <div class="footer">
         <span id="footer-contact">Gizlilik politikamız veya veri silme talepleriniz için: </span> 
-        <a href="mailto:kentseldonusumasistani@gmail.com" class="contact-email">kentseldonusumasistani@gmail.com</a> | 
+        <a href="mailto:mantimood@gmail.com" class="contact-email">mantimood@gmail.com</a> | 
         <a href="mailto:fabmorph@gmail.com" class="contact-email">fabmorph@gmail.com</a><br>
         &copy; 2026 FabMorph. All rights reserved.
     </div>
 </div>
 
+<!-- TOAST ELEMENT -->
+<div id="toast" class="toast">Bağlantı kopyalandı!</div>
+
 <script>
     function toggleAccordion(button) {
-        const item = button.parentElement;
+        const item = button.closest('.accordion-item');
         item.classList.toggle('active');
+    }
+
+    // Direct Anchor link copy function
+    function copyAnchor(event, anchorId) {
+        event.stopPropagation(); // Akordeonun açılıp kapanmasını engeller
+        const cleanAnchor = anchorId.replace('-en', '');
+        const targetUrl = window.location.origin + window.location.pathname + '#' + cleanAnchor;
+        
+        navigator.clipboard.writeText(targetUrl).then(() => {
+            showToast('Bağlantı panoya kopyalandı!');
+        }).catch(() => {
+            window.location.hash = cleanAnchor;
+            showToast('Bağlantı güncellendi!');
+        });
+    }
+
+    function showToast(message) {
+        const toast = document.getElementById('toast');
+        toast.innerText = message;
+        toast.classList.add('show');
+        setTimeout(() => {
+            toast.classList.remove('show');
+        }, 2200);
     }
 
     function setLanguage(lang) {
@@ -553,20 +633,46 @@
             document.getElementById('section-en').classList.add('active');
             document.getElementById('btn-en').classList.add('active');
             document.getElementById('header-subtitle').innerText = 'Official Privacy Policy & Data Safety';
-            document.getElementById('header-meta').innerText = 'Last Updated: October 12, 2026';
+            document.getElementById('header-meta').innerText = 'Last Updated: October 15, 2026';
             document.getElementById('footer-contact').innerText = 'Questions or data deletion requests? Contact us: ';
             document.documentElement.lang = 'en';
         } else {
             document.getElementById('section-tr').classList.add('active');
             document.getElementById('btn-tr').classList.add('active');
             document.getElementById('header-subtitle').innerText = 'Resmi Gizlilik Politikası & KVKK Aydınlatma Metni';
-            document.getElementById('header-meta').innerText = 'Son Güncelleme Tarihi: 12 Ekim 2026';
+            document.getElementById('header-meta').innerText = 'Son Güncelleme Tarihi: 15 Ekim 2026';
             document.getElementById('footer-contact').innerText = 'Gizlilik politikamız veya veri silme talepleriniz için: ';
             document.documentElement.lang = 'tr';
         }
     }
 
-    // Auto-detect URL parameter or browser language
+    // URL'deki hash'i (#manti-mood vb.) yakalayıp ilgili başlığı otomatik açan fonksiyon
+    function handleUrlHash() {
+        const rawHash = window.location.hash;
+        if (!rawHash) return;
+
+        const hash = rawHash.replace('#', '').trim();
+        if (!hash) return;
+
+        // Hem TR hem EN için eşleşen hedefi bul
+        let target = document.querySelector(`[data-anchor="${hash}"]`) || document.getElementById(hash);
+
+        if (target) {
+            // İlgili akordeon öğesini bul
+            const accordionItem = target.classList.contains('accordion-item') 
+                ? target 
+                : target.closest('.accordion-item');
+
+            if (accordionItem) {
+                accordionItem.classList.add('active');
+                setTimeout(() => {
+                    accordionItem.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }, 250);
+            }
+        }
+    }
+
+    // Dil algılama ve başlatma
     const urlParams = new URLSearchParams(window.location.search);
     const paramLang = urlParams.get('lang');
     if (paramLang === 'en' || paramLang === 'tr') {
@@ -579,6 +685,10 @@
             setLanguage('tr');
         }
     }
+
+    // Sayfa açıldığında ve link tıklandığında hash kontrolü
+    window.addEventListener('DOMContentLoaded', handleUrlHash);
+    window.addEventListener('hashchange', handleUrlHash);
 </script>
 
 </body>
